@@ -35,6 +35,7 @@ config = {
             "suggested_prices": ""
         },
         "SOCIAL_MEDIA_FOOTER_URLS": {},
+        "COMPLETION_AGGREGATOR_URL": "https://",
 
         # openedx-lms-production-settings
         "LMS_SOCIAL_SHARING_SETTINGS": {
