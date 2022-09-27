@@ -14,6 +14,8 @@ from .__about__ import __version__
 config = {
     'defaults': {
         # openedx-common-settings
+        "FACEBOOK_BRAND": "",
+        "TWITTER_BRAND": "",
         "BADGR_ENABLE_NOTIFICATIONS": True,
         "BLOCK_STRUCTURES_SETTINGS_PRUNING_ACTIVE": True,
         "DEFAULT_MOBILE_AVAILABLE": True,
