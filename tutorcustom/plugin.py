@@ -78,7 +78,7 @@ config = {
         "SHOW_PROGRESS_BAR": True,
         "ENABLE_OTHER_COURSE_SETTINGS": True,
         "LICENSING": True,
-
+        "SKIP_EMAIL_VALIDATION": False,
     }
 }
 
