@@ -39,6 +39,9 @@ config = {
         "SOCIAL_MEDIA_FOOTER_URLS": {},
         "COMPLETION_AGGREGATOR_URL": "https://",
 
+        # openedx-lms-common-settings
+        "REGISTRATION_EXTRA_FIELDS": '',
+
         # openedx-lms-production-settings
         "LMS_SOCIAL_SHARING_SETTINGS": {
             'CUSTOM_COURSE_URLS': True,
