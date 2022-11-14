@@ -82,6 +82,14 @@ config = {
         "ENABLE_OTHER_COURSE_SETTINGS": True,
         "LICENSING": True,
         "SKIP_EMAIL_VALIDATION": False,
+
+        # others waffle flags, switches and settings created at init time
+        "ENABLE_CERTIFICATES_AUTOGENERATION": True,
+        "ENABLE_SELF_PACED_COURSES": True,
+        "ENABLE_ANONYMOUS_COURSEWARE_ACCESS": True,
+        "ENABLE_PERSISTENT_GRADES": True,
+        "ENABLE_COURSE_EXIT_PAGE": True
+
     }
 }
 
@@ -130,10 +138,10 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 ########################################
 
 # To run the script from templates/custom/tasks/myservice/init, add:
-# hooks.Filters.COMMANDS_INIT.add_item((
-#     "myservice",
-#     ("custom", "tasks", "myservice", "init"),
-# ))
+hooks.Filters.COMMANDS_INIT.add_item((
+    "lms",
+    ("custom", "tasks", "lms", "init"),
+))
 
 
 ########################################
