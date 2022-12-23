@@ -41,7 +41,7 @@ config = {
         "MKTG_URL_OVERRIDES": {},
         "SUPPORT_SITE_LINK": None,
         "CONTACT_US_ENABLE": False,
-        "CONTACT_US_CUSTOM_LINK": '',
+        "CONTACT_US_CUSTOM_LINK": '#',
 
         # openedx-lms-common-settings
         "REGISTRATION_EXTRA_FIELDS": '',
