@@ -38,6 +38,10 @@ config = {
         },
         "SOCIAL_MEDIA_FOOTER_URLS": {},
         "COMPLETION_AGGREGATOR_URL": "https://",
+        "MKTG_URL_OVERRIDES": {},
+        "SUPPORT_SITE_LINK": None,
+        "CONTACT_US_ENABLE": False,
+        "CONTACT_US_CUSTOM_LINK": '',
 
         # openedx-lms-common-settings
         "REGISTRATION_EXTRA_FIELDS": '',
@@ -70,6 +74,7 @@ config = {
         "ENABLE_BULK_ENROLLMENT_VIEW": True,
         "ENABLE_BULK_USER_RETIREMENT": True,
         "ENABLE_CHANGE_USER_PASSWORD_ADMIN": True,
+        "ENABLE_MKTG_SITE": False,
         "ENABLE_ORA_TEAM_SUBMISSIONS": True,
         "ENABLE_ORA_USERNAMES_ON_DATA_EXPORT": True,
         "ENABLE_ORA_USER_STATE_UPLOAD_DATA": True,

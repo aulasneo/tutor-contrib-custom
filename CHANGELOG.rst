@@ -1,3 +1,8 @@
+Version 0.1.3
+-------------
+
+Add footer links
+
 Version 0.1.2
 -------------
 
