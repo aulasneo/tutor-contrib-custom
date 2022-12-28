@@ -1,4 +1,4 @@
-Version 0.2.1 (2022-12-28)
+Unreleased
 -------------
 
 Add patch for Nutmeg to fix 'Pages' view in Studio.
