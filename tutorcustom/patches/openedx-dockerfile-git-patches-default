@@ -1,0 +1,4 @@
+# Fix broken "Pages" view in Studio
+# https://github.com/openedx/edx-platform/pull/30550
+# ******* Remove for Olive *********
+RUN curl -fsSL https://github.com/openedx/edx-platform/commit/8169aa99da32902b00a7f76a20c627ea1d44576c.patch | sed "s/xmodule\/tabs/common\/lib\/xmodule\/xmodule\/tabs/" | git am
