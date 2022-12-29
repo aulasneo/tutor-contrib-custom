@@ -1,4 +1,4 @@
-Unreleased
+Version 0.3.0 (2022-12-29)
 ----------
 
 Add settings for marketing site.
