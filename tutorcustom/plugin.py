@@ -39,6 +39,7 @@ config = {
         "SOCIAL_MEDIA_FOOTER_URLS": {},
         "COMPLETION_AGGREGATOR_URL": "https://",
         "MKTG_URL_OVERRIDES": {},
+        "MKTG_URLS": {},
         "SUPPORT_SITE_LINK": None,
         "CONTACT_US_ENABLE": False,
         "CONTACT_US_CUSTOM_LINK": '',

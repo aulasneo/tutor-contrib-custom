@@ -37,6 +37,21 @@ Available fields and their defaults are:
 - city (hidden)
 - country (hidden)
 
+Marketing site
+--------------
+
+Set `CUSTOM_ENABLE_MKTG_SITE` to `True` to enable the marketing site.
+Add the marketing site url to the `ROOT` element in the `CUSTOM_MKTG_URLS` dict.
+
+- CUSTOM_ENABLE_MKTG_SITE (default: false)
+- CUSTOM_MKTG_URLS (default empty dict). Sets the URLs at the header for non authenticated users
+    when the marketing site is enabled (CUSTOM_ENABLE_MKTG_SITE=True).
+    If the marketing site is enabled, set the following elements:
+    - ROOT: url of the marketing site (mandatory)
+    - COURSES: url for the 'courses' tab. Set to empty string to remove the tab.
+    - HOW_IT_WORKS: url for the 'how it works' tab. Set to empty string to remove the tab.
+    - SCHOOLS: url for the 'schools' tab. Set to empty string to remove the tab.
+
 Footer links
 ------------
 
