@@ -64,10 +64,15 @@ Valid keys are:
 - CAREERS
 - DONATE
 
-Set `CUSTOM_SUPPORT_SITE_LINK` to add a link to the help center
+Set `CUSTOM_SUPPORT_SITE_LINK` to add a link to the help center. Set to '#' to remove the link
 
 Set `CUSTOM_CONTACT_US_ENABLE` to True and `CUSTOM_CONTACT_US_CUSTOM_LINK` to a valid url
 to add a site with a contact form.
+
+Remove search box in index
+--------------------------
+
+Disable the discovery plugin and set `CUSTOM_ENABLE_COURSE_DISCOVERY` to `False`.
 
 Usage
 -----
