@@ -1,4 +1,4 @@
-Unreleased
+Version 0.4.0 (2022-12-30)
 ----------
 
 Add CUSTOM_ENABLE_COURSE_DISCOVERY to disable the search box at the home page.
