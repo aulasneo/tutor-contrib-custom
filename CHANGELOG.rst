@@ -1,3 +1,7 @@
+Unreleased
+----------
+Fix CUSTOM_ENABLE_COURSE_DISCOVERY.
+
 Version 0.4.0 (2022-12-30)
 ----------
 
