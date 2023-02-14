@@ -3,7 +3,8 @@ Customizer plugin for `Tutor <https://docs.tutor.overhang.io>`__
 
 Plugin to customize settings of Open edX.
 
-It provides a good set of default for most Open edX settings.
+It provides a good set of default for most Open edX settings, and allows to configure
+many settings from the ``conf.yml`` file.
 
 Installation
 ------------
@@ -20,7 +21,8 @@ Set configuration variables prepended with `CUSTOM_` to change the defaults.
 Check the `config` dict in the `plugin.py` for available variables and their default values.
 
 Registration extra fields
--------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
 REGISTRATION_EXTRA_FIELDS: update field visibility options in the registration form.
 Visibility options are `required`, `optional` or `hidden`.
@@ -38,7 +40,7 @@ Available fields and their defaults are:
 - country (hidden)
 
 Marketing site
---------------
+~~~~~~~~~~~~~~
 
 Set `CUSTOM_ENABLE_MKTG_SITE` to `True` to enable the marketing site.
 Add the marketing site url to the `ROOT` element in the `CUSTOM_MKTG_URLS` dict.
@@ -53,7 +55,7 @@ Add the marketing site url to the `ROOT` element in the `CUSTOM_MKTG_URLS` dict.
     - SCHOOLS: url for the 'schools' tab. Set to empty string to remove the tab.
 
 Footer links
-------------
+~~~~~~~~~~~~
 
 Set `CUSTOM_CUSTOM_MKTG_URL_OVERRIDES` to a dict with URLs to override, or '#' to remove.
 Valid keys are:
@@ -70,9 +72,16 @@ Set `CUSTOM_CONTACT_US_ENABLE` to True and `CUSTOM_CONTACT_US_CUSTOM_LINK` to a 
 to add a site with a contact form.
 
 Remove search box in index
---------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Disable the discovery plugin and set `CUSTOM_ENABLE_COURSE_DISCOVERY` to `False`.
+
+Additional sites
+~~~~~~~~~~~~~~~~
+
+Enable additional Django sites by adding the URLs to the ``ALLOWED_HOSTS`` list.
+
+Remember to add the url to Django's sites and create a DNS CNAME entry pointing to the LMS host.
 
 Usage
 -----

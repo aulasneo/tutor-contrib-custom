@@ -60,6 +60,7 @@ config = {
             'CERTIFICATE_TWITTER': True,
             'CERTIFICATE_LINKEDIN': True,
         },
+        'ALLOWED_HOSTS': [],
 
         # openedx-cms-production-settings
         "CMS_SOCIAL_SHARING_SETTINGS": {
