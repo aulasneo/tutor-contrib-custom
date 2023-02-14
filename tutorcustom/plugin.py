@@ -91,6 +91,7 @@ config = {
         "ENABLE_OTHER_COURSE_SETTINGS": True,
         "LICENSING": True,
         "SKIP_EMAIL_VALIDATION": False,
+        "ENABLE_ENTERPRISE_INTEGRATION": False,
 
         # others waffle flags, switches and settings created at init time
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,
