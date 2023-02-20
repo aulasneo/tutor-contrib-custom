@@ -1,3 +1,4 @@
+{{ CUSTOM_CADDYFILE_PATCH }}
 {% if CUSTOM_ALLOWED_HOSTS %}
 {% for allowed_host in CUSTOM_ALLOWED_HOSTS %}{{ allowed_host ~ '{$default_site_port}' }}{%if not loop.last %}, {% endif %}{% endfor %} {
     @favicon_matcher {
