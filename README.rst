@@ -54,22 +54,96 @@ Add the marketing site url to the `ROOT` element in the `CUSTOM_MKTG_URLS` dict.
     - HOW_IT_WORKS: url for the 'how it works' tab. Set to empty string to remove the tab.
     - SCHOOLS: url for the 'schools' tab. Set to empty string to remove the tab.
 
+If CUSTOM_ENABLE_MKTG_SITE is true:
+    - Set marketing URLs in CUSTOM_MKTG_URLS
+Else:
+    - Set the marketeting URLs in CUSTOM_MKTG_URL_LINK_MAP
+
+Any setting configured in CUSTOM_MKTG_URL_OVERRIDES will override CUSTOM_MKTG_URLS and CUSTOM_MKTG_URL_LINK_MAP.
+
 Footer links
 ~~~~~~~~~~~~
 
-Set `CUSTOM_CUSTOM_MKTG_URL_OVERRIDES` to a dict with URLs to override, or '#' to remove.
+Set `CUSTOM_MKTG_URL_OVERRIDES` to a dict with URLs to override, or '#' to remove.
 Valid keys are:
 
 - ABOUT
 - ENTERPRISE
 - BLOG
+- AFFILIATES
 - CAREERS
 - DONATE
+- MEDIA_KIT
+- NEWS
+- TOS_AND_HONOR
+- PRIVACY
+- ACCESSIBILITY
+- TOS
+- HONOR
+- SITE_MAP
+- AFFILIATES
+- COOKIE
+- CCPA
 
 Set `CUSTOM_SUPPORT_SITE_LINK` to add a link to the help center. Set to '#' to remove the link
 
-Set `CUSTOM_CONTACT_US_ENABLE` to True and `CUSTOM_CONTACT_US_CUSTOM_LINK` to a valid url
-to add a site with a contact form.
+Set `CUSTOM_SECURITY_PAGE_URL` to set the url of the security page
+
+How are footer links displayed:
+
+All these links are visible if not set to "#".
+
+
+Navigation links:
+- ABOUT
+- ENTERPRISE
+- BLOG
+- NEWS
+- HELP_CENTER (from CUSTOM_SUPPORT_SITE_LINK)
+- CONTACT (This is not set here. Set CONTACT_US_CUSTOM_LINK in the site configuration)
+- CAREERS
+- DONATE
+
+Legal links:
+- TOS_AND_HONOR
+- PRIVACY
+- ACCESSIBILITY
+- SITE_MAP
+- TOS (available only if TOS_AND_HONOR is not '#')
+- HONOR (available only if TOS_AND_HONOR is not '#')
+
+Connect links (not visible in the standard views):
+- BLOG
+- CONTACT (This is not set here. Set CONTACT_US_CUSTOM_LINK in the site configuration)
+- HELP_CENTER (from CUSTOM_SUPPORT_SITE_LINK)
+- SECURITY (from CUSTOM_SECURITY_PAGE_URL)
+- MEDIA_KIT
+- DONATE
+
+Business links (not visible in the standard views):
+- ABOUT
+- ENTERPRISE (plus a set of query parameters set in CUSTOM_ENTERPRISE_MARKETING_FOOTER_QUERY_PARAMS)
+- AFFILIATES
+- CAREERS
+- NEWS
+
+More info links (not visible in the standard views):
+- TOS_AND_HONOR
+- TOS (available only if TOS_AND_HONOR is not '#')
+- HONOR (available only if TOS_AND_HONOR is not '#')
+- PRIVACY
+- COOKIE
+- ACCESSIBILITY
+- CCPA
+- SITE_MAP
+- TRADEMARKS
+
+Header links
+~~~~~~~~~~~~~
+
+- HOW_IT_WORKS
+- COURSES
+- SCHOOLS
 
 Remove search box in index
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

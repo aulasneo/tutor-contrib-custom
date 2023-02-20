@@ -40,9 +40,10 @@ config = {
         "COMPLETION_AGGREGATOR_URL": "https://",
         "MKTG_URL_OVERRIDES": {},
         "MKTG_URLS": {},
-        "SUPPORT_SITE_LINK": None,
-        "CONTACT_US_ENABLE": False,
-        "CONTACT_US_CUSTOM_LINK": '',
+        "MKTG_URL_LINK_MAP": {},
+        "SUPPORT_SITE_LINK": '#',
+        "SECURITY_PAGE_URL": '#',
+        "ENTERPRISE_MARKETING_FOOTER_QUERY_PARAMS": '',
 
         # openedx-lms-common-settings
         "REGISTRATION_EXTRA_FIELDS": '',
@@ -98,7 +99,10 @@ config = {
         "ENABLE_SELF_PACED_COURSES": True,
         "ENABLE_ANONYMOUS_COURSEWARE_ACCESS": True,
         "ENABLE_PERSISTENT_GRADES": True,
-        "ENABLE_COURSE_EXIT_PAGE": True
+        "ENABLE_COURSE_EXIT_PAGE": True,
+
+        # caddyfile patch
+        "CADDYFILE_PATCH": '',
 
     }
 }
