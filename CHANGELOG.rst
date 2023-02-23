@@ -1,4 +1,4 @@
-Unreleased
+Version 0.5.0 (2023-02-23)
 ----------
 
 Enable bulk enrollments by default.
