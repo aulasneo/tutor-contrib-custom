@@ -157,6 +157,12 @@ Enable additional Django sites by adding the URLs to the ``ALLOWED_HOSTS`` list.
 
 Remember to add the url to Django's sites and create a DNS CNAME entry pointing to the LMS host.
 
+Bulk enrollment
+~~~~~~~~~~~~~~
+
+By default, bulk enrollments via CSV is not enabled. This plugin will enable bulk enrollments by default.
+To disable bulk enrollments, set ``CUSTOM_ALLOW_AUTOMATED_SIGNUPS`` to ``False``.
+
 Usage
 -----
 

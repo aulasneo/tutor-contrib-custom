@@ -1,3 +1,14 @@
+Unreleased
+----------
+
+Enable bulk enrollments by default.
+Improve support of marketing urls.
+Enable patching caddyfile with CUSTOM_CADDYFILE_PATCH.
+Enable enterprise integration by default.
+Allow multiple sites
+Enable third party authentication with CUSTOM_AUTHENTICATION_BACKENDS setting
+
+
 Version 0.4.1 (2023-01-16)
 ----------
 Fix CUSTOM_ENABLE_COURSE_DISCOVERY.

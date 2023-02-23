@@ -93,6 +93,7 @@ config = {
         "LICENSING": True,
         "SKIP_EMAIL_VALIDATION": False,
         "ENABLE_ENTERPRISE_INTEGRATION": False,
+        "ALLOW_AUTOMATED_SIGNUPS": True,
 
         # others waffle flags, switches and settings created at init time
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,
