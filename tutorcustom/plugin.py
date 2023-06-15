@@ -49,6 +49,7 @@ config = {
         "REGISTRATION_EXTRA_FIELDS": '',
         "ENABLE_COURSE_DISCOVERY": True,
         "AUTHENTICATION_BACKENDS": [],
+        "SOCIAL_AUTH_OAUTH_SECRETS": {},
 
         # openedx-lms-production-settings
         "LMS_SOCIAL_SHARING_SETTINGS": {

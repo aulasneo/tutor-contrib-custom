@@ -1,3 +1,8 @@
+Unreleased
+----------
+
+Add CUSTOM_SOCIAL_AUTH_OAUTH_SECRETS to set OAuth2 secrets.
+
 Version 0.5.0 (2023-02-23)
 ----------
 
