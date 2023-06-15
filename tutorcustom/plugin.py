@@ -49,6 +49,7 @@ config = {
         "REGISTRATION_EXTRA_FIELDS": '',
         "ENABLE_COURSE_DISCOVERY": True,
         "AUTHENTICATION_BACKENDS": [],
+        "SOCIAL_AUTH_OAUTH_SECRETS": {},
 
         # openedx-lms-production-settings
         "LMS_SOCIAL_SHARING_SETTINGS": {
@@ -62,6 +63,7 @@ config = {
             'CERTIFICATE_LINKEDIN': True,
         },
         'ALLOWED_HOSTS': [],
+        "ENABLE_REQUIRE_THIRD_PARTY_AUTH": False,
 
         # openedx-cms-production-settings
         "CMS_SOCIAL_SHARING_SETTINGS": {
@@ -94,6 +96,7 @@ config = {
         "SKIP_EMAIL_VALIDATION": False,
         "ENABLE_ENTERPRISE_INTEGRATION": False,
         "ALLOW_AUTOMATED_SIGNUPS": True,
+        "ALLOW_PUBLIC_ACCOUNT_CREATION": True,
 
         # others waffle flags, switches and settings created at init time
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,

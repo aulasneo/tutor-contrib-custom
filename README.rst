@@ -163,6 +163,28 @@ Bulk enrollment
 By default, bulk enrollments via CSV is not enabled. This plugin will enable bulk enrollments by default.
 To disable bulk enrollments, set ``CUSTOM_ALLOW_AUTOMATED_SIGNUPS`` to ``False``.
 
+OAUTH2 secrets
+~~~~~~~~~~~~~~
+
+Set ``CUSTOM_SOCIAL_AUTH_OAUTH_SECRETS`` with all the OAuth2 secrets. E.g.:
+
+::
+
+    SOCIAL_AUTH_OAUTH_SECRETS:
+        facebook: 98765432181bbe3a2596efa8ba7abcde
+        google-oauth2: abcdef123456789101112131
+        linkedin-oauth2: 4D3Cb2aB1C0dEFGH
+        azuread-oauth2: abcdef12341yHlmOrR8D3vlV1cD2VtL7k9xk9DSB8vw=
+
+Disable registration form
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Set ``CUSTOM_ALLOW_PUBLIC_ACCOUNT_CREATION`` to ``False`` to disable the public
+registration form.
+
+Set ``CUSTOM_ENABLE_REQUIRE_THIRD_PARTY_AUTH`` to ``True`` to disable user/password
+login and registration and force registering via a third party identity provider.
+
 Usage
 -----
 
