@@ -176,6 +176,12 @@ Set ``CUSTOM_SOCIAL_AUTH_OAUTH_SECRETS`` with all the OAuth2 secrets. E.g.:
         linkedin-oauth2: 4D3Cb2aB1C0dEFGH
         azuread-oauth2: abcdef12341yHlmOrR8D3vlV1cD2VtL7k9xk9DSB8vw=
 
+Disable registration form
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Set ``CUSTOM_ALLOW_PUBLIC_ACCOUNT_CREATION`` to ``False`` to disable the public
+registration form.
+
 Usage
 -----
 

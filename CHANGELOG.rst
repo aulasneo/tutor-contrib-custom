@@ -2,6 +2,7 @@ Unreleased
 ----------
 
 Add CUSTOM_SOCIAL_AUTH_OAUTH_SECRETS to set OAuth2 secrets.
+Add CUSTOM_ALLOW_PUBLIC_ACCOUNT_CREATION to disable the public registration form.
 
 Version 0.5.0 (2023-02-23)
 ----------

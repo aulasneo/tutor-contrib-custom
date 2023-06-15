@@ -95,6 +95,7 @@ config = {
         "SKIP_EMAIL_VALIDATION": False,
         "ENABLE_ENTERPRISE_INTEGRATION": False,
         "ALLOW_AUTOMATED_SIGNUPS": True,
+        "ALLOW_PUBLIC_ACCOUNT_CREATION": True,
 
         # others waffle flags, switches and settings created at init time
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,
