@@ -63,6 +63,7 @@ config = {
             'CERTIFICATE_LINKEDIN': True,
         },
         'ALLOWED_HOSTS': [],
+        "ENABLE_REQUIRE_THIRD_PARTY_AUTH": False,
 
         # openedx-cms-production-settings
         "CMS_SOCIAL_SHARING_SETTINGS": {

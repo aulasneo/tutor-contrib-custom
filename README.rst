@@ -182,6 +182,9 @@ Disable registration form
 Set ``CUSTOM_ALLOW_PUBLIC_ACCOUNT_CREATION`` to ``False`` to disable the public
 registration form.
 
+Set ``CUSTOM_ENABLE_REQUIRE_THIRD_PARTY_AUTH`` to ``True`` to disable user/password
+login and registration and force registering via a third party identity provider.
+
 Usage
 -----
 
