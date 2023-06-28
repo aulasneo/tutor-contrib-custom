@@ -1,3 +1,8 @@
+Unreleased
+----------
+
+Add Google Analytics support
+
 Version 0.6.0 (2023-06-16)
 ----------
 

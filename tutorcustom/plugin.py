@@ -44,6 +44,8 @@ config = {
         "SUPPORT_SITE_LINK": '#',
         "SECURITY_PAGE_URL": '#',
         "ENTERPRISE_MARKETING_FOOTER_QUERY_PARAMS": '',
+        "GOOGLE_ANALYTICS_ACCOUNT": '',
+        "GOOGLE_ANALYTICS_TRACKING_ID": '',
 
         # openedx-lms-common-settings
         "REGISTRATION_EXTRA_FIELDS": '',

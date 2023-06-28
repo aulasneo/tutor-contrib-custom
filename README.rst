@@ -185,6 +185,18 @@ registration form.
 Set ``CUSTOM_ENABLE_REQUIRE_THIRD_PARTY_AUTH`` to ``True`` to disable user/password
 login and registration and force registering via a third party identity provider.
 
+Google Analytics
+~~~~~~~~~~~~~~~~
+
+Set ``CUSTOM_GOOGLE_ANALYTICS_ACCOUNT`` and ``CUSTOM_GOOGLE_ANALYTICS_TRACKING_ID``.
+Then rebuild openedx and mfe.
+
+Note: as of May 2023 Google Analytics support has been upgraded from
+Google Universal Analytics to Google Analytics 4 and you may need to update
+your configuration as mentioned in the Open edX docs.
+
+
+
 Usage
 -----
 
