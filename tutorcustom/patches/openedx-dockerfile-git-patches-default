@@ -15,3 +15,6 @@ RUN curl -fsSL https://github.com/overhangio/edx-platform/commit/527b4993ae.patc
 # Fix refresh of JWT tokens for disabled users
 # https://github.com/overhangio/edx-platform/tree/overhangio/sec-fix-user-retiring
 RUN curl -fsSL https://github.com/overhangio/edx-platform/commit/4df942b32b.patch | git am
+# Backport support for Google Analytics 4
+# https://github.com/openedx/edx-platform/pull/32106/commits
+RUN curl -fsSL https://github.com/openedx/edx-platform/commit/31fd6b10599ddc52d23e002d1f5c3eee1500e305.patch  | git am
