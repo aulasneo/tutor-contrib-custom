@@ -81,6 +81,19 @@ config = {
         },
         'ALLOWED_HOSTS': [],
         "ENABLE_REQUIRE_THIRD_PARTY_AUTH": False,
+        "AUTH_PASSWORD_VALIDATORS": [
+            {
+                'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
+            },
+            {
+                'NAME': 'common.djangoapps.util.password_policy_validators.MinimumLengthValidator',
+                'OPTIONS': {'min_length': 2}
+            },
+            {
+                'NAME': 'common.djangoapps.util.password_policy_validators.MaximumLengthValidator',
+                'OPTIONS': {'max_length': 75}
+            }
+        ],
 
         # openedx-cms-production-settings
         "CMS_SOCIAL_SHARING_SETTINGS": {

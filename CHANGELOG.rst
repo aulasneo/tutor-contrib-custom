@@ -1,6 +1,7 @@
 Unreleased
 ----------
 
+Add support for AUTH_PASSWORD_VALIDATORS.
 Update default MKTG_URL_LINK_MAP.
 
 Version 0.6.1 (2023-06-28)

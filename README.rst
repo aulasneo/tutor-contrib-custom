@@ -20,6 +20,49 @@ Set configuration variables prepended with `CUSTOM_` to change the defaults.
 
 Check the `config` dict in the `plugin.py` for available variables and their default values.
 
+Passwords policy
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+See `the documentation <https://edx.readthedocs.io/projects/edx-installing-configuring-and-running/en/latest/configuration/password.html>`_
+for more information about setting a password policy.
+The list of validators can be found in the `edx repository <https://github.com/openedx/edx-platform/blob/master/common/djangoapps/util/password_policy_validators.py>`_.
+
+Currently the available validators are:
+
+.. csv-table:: Password validators
+    :header: "Validator", "Options"
+
+    "django.contrib.auth.password_validation.UserAttributeSimilarityValidator", "--"
+    "common.djangoapps.util.password_policy_validators.MinimumLengthValidator",   "min_length"
+    "common.djangoapps.util.password_policy_validators.MaximumLengthValidator",   "max_length"
+    "common.djangoapps.util.password_policy_validators.AlphabeticValidator",      "min_alphabetic"
+    "common.djangoapps.util.password_policy_validators.NumericValidator",         "min_numeric"
+    "common.djangoapps.util.password_policy_validators.UppercaseValidator",       "min_upper"
+    "common.djangoapps.util.password_policy_validators.LowercaseValidator",       "min_lower"
+    "common.djangoapps.util.password_policy_validators.PunctuationValidator",     "min_punctuation"
+    "common.djangoapps.util.password_policy_validators.SymbolValidator",          "min_symbol"
+
+The default value is:
+
+::
+
+        [
+            {
+                'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
+            },
+            {
+                'NAME': 'common.djangoapps.util.password_policy_validators.MinimumLengthValidator',
+                'OPTIONS': {'min_length': 2}
+            },
+            {
+                'NAME': 'common.djangoapps.util.password_policy_validators.MaximumLengthValidator',
+                'OPTIONS': {'max_length': 75}
+            }
+        ]
+
+Note that the type of the value is `list`. Setting this configuration will overwrite the default.
+
+
 Registration extra fields
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
