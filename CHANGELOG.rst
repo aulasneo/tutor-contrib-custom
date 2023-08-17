@@ -1,4 +1,4 @@
-Unreleased
+Version 0.7.0 (2023-08-17)
 ----------
 
 Add support for AUTH_PASSWORD_VALIDATORS.
