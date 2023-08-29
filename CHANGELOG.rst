@@ -8,6 +8,7 @@ Setup compatibility with tutor 14 and Olive
 Remove unused ALLOWED_HOSTS in caddyfile patch
 Remove deprecated ASSUME_ZERO_GRADE_IF_ABSENT_FOR_ALL_TESTS (https://github.com/openedx/edx-platform/pull/30978)
 Remove deprecated BLOCK_STRUCTURES_SETTINGS['PRUNING_ACTIVE'] (https://github.com/openedx/public-engineering/issues/31)
+Replace Google UA settings with GOOGLE_ANALYTICS_4_ID
 
 
 Version 14.0.0 (2023-08-29)

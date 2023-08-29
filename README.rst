@@ -231,12 +231,8 @@ login and registration and force registering via a third party identity provider
 Google Analytics
 ~~~~~~~~~~~~~~~~
 
-Set ``CUSTOM_GOOGLE_ANALYTICS_ACCOUNT`` and ``CUSTOM_GOOGLE_ANALYTICS_TRACKING_ID``.
+Set ``CUSTOM_GOOGLE_ANALYTICS_4_ID`` to your Google Analytics 4 ID.
 Then rebuild openedx and mfe.
-
-Note: as of May 2023 Google Analytics support has been upgraded from
-Google Universal Analytics to Google Analytics 4 and you may need to update
-your configuration as mentioned in the Open edX docs.
 
 
 
