@@ -33,13 +33,14 @@ setup(
         "Issue tracker": "https://github.com/aulasneo/tutor-contrib-custom/issues",
     },
     license="AGPLv3",
-    author="Andrés González",
+    author="Aulasneo",
+    author_email="andres@aulasneo.com"
     description="custom plugin for Tutor",
     long_description=load_readme(),
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     python_requires=">=3.7",
-    install_requires=["tutor"],
+    install_requires=["tutor <= 14.0.0, <15.0.0"],
     entry_points={
         "tutor.plugin.v1": [
             "custom = tutorcustom.plugin"
