@@ -17,7 +17,6 @@ config = {
         "FACEBOOK_BRAND": "",
         "TWITTER_BRAND": "",
         "BADGR_ENABLE_NOTIFICATIONS": True,
-        "BLOCK_STRUCTURES_SETTINGS_PRUNING_ACTIVE": True,
         "DEFAULT_MOBILE_AVAILABLE": True,
         "ENABLE_COMPREHENSIVE_THEMING": True,
         # Set to True to prevent using username/password login and registration and only allow
