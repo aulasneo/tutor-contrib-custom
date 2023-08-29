@@ -16,12 +16,6 @@
 ./manage.py lms waffle_delete --flags certificates.auto_certificate_generation
 {% endif %}
 
-{% if CUSTOM_ENABLE_PERSISTENT_GRADES %}
-./manage.py lms shell -c "from lms.djangoapps.grades.config.models import PersistentGradesEnabledFlag; PersistentGradesEnabledFlag(enabled_for_all_courses=True, enabled=True).save()"
-{% else %}
-./manage.py lms shell -c "from lms.djangoapps.grades.config.models import PersistentGradesEnabledFlag; PersistentGradesEnabledFlag(enabled_for_all_courses=True, enabled=False).save()"
-{% endif %}
-
 {% if CUSTOM_ENABLE_COURSE_EXIT_PAGE %}
 (./manage.py lms waffle_flag --list | grep courseware.microfrontend_course_exit_page) || ./manage.py lms waffle_flag --create --everyone courseware.microfrontend_course_exit_page
 {% else %}

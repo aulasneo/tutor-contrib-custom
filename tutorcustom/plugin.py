@@ -127,7 +127,6 @@ config = {
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,
         "ENABLE_SELF_PACED_COURSES": True,
         "ENABLE_ANONYMOUS_COURSEWARE_ACCESS": True,
-        "ENABLE_PERSISTENT_GRADES": True,
         "ENABLE_COURSE_EXIT_PAGE": True,
 
         # caddyfile patch
