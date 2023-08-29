@@ -6,6 +6,7 @@ Unreleased
 
 Setup compatibility with tutor 14 and Olive
 Remove unused ALLOWED_HOSTS in caddyfile patch
+Remove deprecated ASSUME_ZERO_GRADE_IF_ABSENT_FOR_ALL_TESTS (https://github.com/openedx/edx-platform/pull/30978)
 
 Version 14.0.0 (2023-08-29)
 ----------
