@@ -1,6 +1,12 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+Setup compatibility with tutor 14 and Olive
+Remove unused ALLOWED_HOSTS in caddyfile patch
+
 Version 14.0.0 (2023-08-29)
 ----------
 

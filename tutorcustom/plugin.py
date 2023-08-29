@@ -79,7 +79,6 @@ config = {
             'CERTIFICATE_TWITTER': True,
             'CERTIFICATE_LINKEDIN': True,
         },
-        'ALLOWED_HOSTS': [],
         "ENABLE_REQUIRE_THIRD_PARTY_AUTH": False,
         "AUTH_PASSWORD_VALIDATORS": [
             {
