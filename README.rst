@@ -104,6 +104,37 @@ Else:
 
 Any setting configured in CUSTOM_MKTG_URL_OVERRIDES will override CUSTOM_MKTG_URLS and CUSTOM_MKTG_URL_LINK_MAP.
 
+Default MKTG_URLS:
+
+::
+
+        "MKTG_URLS": {
+            'ABOUT': '/about',
+            'ACCESSIBILITY': '/accessibility',
+            'AFFILIATES': '/affiliate-program',
+            'BLOG': '/blog',
+            'CAREERS': '/careers',
+            'CONTACT': '/support/contact_us',
+            'COURSES': '/course',
+            'DONATE': '/donate',
+            'ENTERPRISE': '/enterprise',
+            'FAQ': '/student-faq',
+            'HONOR': '/edx-terms-service',
+            'HOW_IT_WORKS': '/how-it-works',
+            'MEDIA_KIT': '/media-kit',
+            'NEWS': '/news-announcements',
+            'PRESS': '/press',
+            'PRIVACY': '/edx-privacy-policy',
+            'ROOT': <LMS base url>,
+            'SCHOOLS': '/schools-partners',
+            'SITE_MAP': '/sitemap',
+            'TOS': '/edx-terms-service',
+            'TOS_AND_HONOR': '/edx-terms-service',
+            'TRADEMARKS': '/trademarks',
+            'WHAT_IS_VERIFIED_CERT': '/verified-certificate'
+        },
+
+
 Footer links
 ~~~~~~~~~~~~
 
@@ -187,6 +218,25 @@ Header links
 - HOW_IT_WORKS
 - COURSES
 - SCHOOLS
+
+Footer social links
+~~~~~~~~~~~~~~~~~~~
+
+Set SOCIAL_MEDIA_FOOTER_URLS to a dict of social links. E.g.:
+
+::
+
+    SOCIAL_MEDIA_FOOTER_URLS = {
+        'tumblr': '<insert_tumblr_url_here>',
+        'reddit': '<insert_reddit_url_here>',
+        'twitter': '<insert_twitter_url_here>',
+        'google_plus': '<insert_google_plus_url_here>',
+        'youtube': '<insert_youtube_url_here>',
+        'linkedin': '<insert_linkedin_url_here>',
+        'meetup': '<insert_meetup_url_here>',
+        'facebook': '<insert_facebook_url_here>',
+    }
+
 
 Remove search box in index
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -18,11 +18,11 @@ config = {
         "TWITTER_BRAND": "",
         "BADGR_ENABLE_NOTIFICATIONS": True,
         "DEFAULT_MOBILE_AVAILABLE": True,
-        "ENABLE_COMPREHENSIVE_THEMING": True,
+        "ENABLE_COMPREHENSIVE_THEMING": True,   # Already true as default
         # Set to True to prevent using username/password login and registration and only allow
         #   authentication with third party auth
         "ENABLE_REQUIRE_THIRD_PARTY_AUTH": False,
-        "SEARCH_SKIP_SHOW_IN_CATALOG_FILTERING": False,
+        "SEARCH_SKIP_SHOW_IN_CATALOG_FILTERING": False, # Already false as default
         "WIKI_ENABLED": False,
         "COURSE_MODE_DEFAULTS": {
             "name": "Honor",
@@ -34,33 +34,41 @@ config = {
             "min_price": 0,
             "sku": None,
             "suggested_prices": ""
-        },
-        "SOCIAL_MEDIA_FOOTER_URLS": {},
+        }, # Default is audit mode
         "COMPLETION_AGGREGATOR_URL": "https://",
-        "MKTG_URL_OVERRIDES": {},
-        "MKTG_URLS": {},
         "MKTG_URL_LINK_MAP": {
             'ABOUT': 'about',
-            'CONTACT': 'contact',
-            'FAQ': 'help',
-            'COURSES': 'courses',
-            'ROOT': 'root',
-            'TOS': 'tos',
-            'HONOR': 'honor',
-            'TOS_AND_HONOR': 'edx-terms-service',
-            'PRIVACY': 'privacy',
-            'PRESS': 'press',
             'BLOG': 'blog',
+            'CONTACT': 'contact',
+            'COURSES': 'courses',
             'DONATE': 'donate',
+            'FAQ': 'help',
+            'HONOR': 'honor',
+            'PRESS': 'press',
+            'PRIVACY': 'privacy',
+            'ROOT': 'root',
             'SITEMAP.XML': 'sitemap_xml',
-            'WHAT_IS_VERIFIED_CERT': 'verified-certificate',
+            'TOS': 'tos',
+            'TOS_AND_HONOR': 'edx-terms-service',
+            'WHAT_IS_VERIFIED_CERT': 'verified-certificate'
         },
-        "SUPPORT_SITE_LINK": '#',
+        "SUPPORT_SITE_LINK": '',
         "SECURITY_PAGE_URL": '#',
-        "ENTERPRISE_MARKETING_FOOTER_QUERY_PARAMS": '',
+        "ENTERPRISE_MARKETING_FOOTER_QUERY_PARAMS": {},
 
         # openedx-lms-common-settings
-        "REGISTRATION_EXTRA_FIELDS": '',
+        "REGISTRATION_EXTRA_FIELDS": {
+            'city': 'hidden',
+            'confirm_email': 'hidden',
+            'country': 'hidden',
+            'gender': 'optional',
+            'goals': 'optional',
+            'honor_code': 'hidden',
+            'level_of_education': 'optional',
+            'mailing_address': 'optional',
+            'terms_of_service': 'required',
+            'year_of_birth': 'optional'
+        },
         "ENABLE_COURSE_DISCOVERY": True,
         "AUTHENTICATION_BACKENDS": [],
         "SOCIAL_AUTH_OAUTH_SECRETS": {},
