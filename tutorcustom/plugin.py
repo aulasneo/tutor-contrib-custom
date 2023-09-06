@@ -74,6 +74,8 @@ config = {
             }
         },
         "ENABLE_DYNAMIC_REGISTRATION_FIELDS": False,
+        "MAX_FAILED_LOGIN_ATTEMPTS_ALLOWED": True,
+        "MAX_FAILED_LOGIN_ATTEMPTS_LOCKOUT_PERIOD_SECS": 1800,
 
         # openedx-lms-common-settings
         "ENABLE_COURSE_DISCOVERY": True,
@@ -123,6 +125,7 @@ config = {
         "ENABLE_ENTERPRISE_INTEGRATION": False,
         "ALLOW_AUTOMATED_SIGNUPS": True,
         "ALLOW_PUBLIC_ACCOUNT_CREATION": True,
+        "ENABLE_MAX_FAILED_LOGIN_ATTEMPTS": True,
 
         # others waffle flags, switches and settings created at init time
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,

@@ -326,6 +326,14 @@ To disable Big Blue Button support, set `CUSTOM_ENABLE_BIG_BLUE_BUTTON` to False
 
 Then run `tutor {dev|local|k8s} init --limit custom` to enable it.
 
+Maximum login failures allowed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Set `CUSTOM_ENABLE_MAX_FAILED_LOGIN_ATTEMPTS` (enabled by default) to False to
+disable account locking after multiple failed attempts.
+Set `CUSTOM_MAX_FAILED_LOGIN_ATTEMPTS_ALLOWED` (default 6) and
+`CUSTOM_MAX_FAILED_LOGIN_ATTEMPTS_LOCKOUT_PERIOD_SECS` (default 1800) to adjust the feature.
+
 
 Usage
 -----
