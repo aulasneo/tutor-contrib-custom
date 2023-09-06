@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 14.0.1 (2023-09-06)
 ----------
 
 Add capability to disable and/or adjust the maximum student failed login attempts.
