@@ -57,18 +57,6 @@ config = {
         "ENTERPRISE_MARKETING_FOOTER_QUERY_PARAMS": {},
 
         # openedx-lms-common-settings
-        "REGISTRATION_EXTRA_FIELDS": {
-            'city': 'hidden',
-            'confirm_email': 'hidden',
-            'country': 'hidden',
-            'gender': 'optional',
-            'goals': 'optional',
-            'honor_code': 'hidden',
-            'level_of_education': 'optional',
-            'mailing_address': 'optional',
-            'terms_of_service': 'required',
-            'year_of_birth': 'optional'
-        },
         "ENABLE_COURSE_DISCOVERY": True,
         "AUTHENTICATION_BACKENDS": [],
         "SOCIAL_AUTH_OAUTH_SECRETS": {},
