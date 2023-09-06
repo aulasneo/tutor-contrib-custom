@@ -95,9 +95,6 @@ config = {
         ],
 
         # openedx-cms-production-settings
-        "CMS_SOCIAL_SHARING_SETTINGS": {
-            'CUSTOM_COURSE_URLS': True,
-        },
 
         # common-env-features
         "ALLOW_HIDING_DISCUSSION_TAB": True,
