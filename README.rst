@@ -238,6 +238,13 @@ Note: as of May 2023 Google Analytics support has been upgraded from
 Google Universal Analytics to Google Analytics 4 and you may need to update
 your configuration as mentioned in the Open edX docs.
 
+Maximum login failures allowed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Set `CUSTOM_ENABLE_MAX_FAILED_LOGIN_ATTEMPTS` (enabled by default) to False to
+disable account locking after multiple failed attempts.
+Set `CUSTOM_MAX_FAILED_LOGIN_ATTEMPTS_ALLOWED` (default 6) and
+`CUSTOM_MAX_FAILED_LOGIN_ATTEMPTS_LOCKOUT_PERIOD_SECS` (default 1800) to adjust the feature.
 
 
 Usage

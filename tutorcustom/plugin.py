@@ -61,6 +61,8 @@ config = {
         "ENTERPRISE_MARKETING_FOOTER_QUERY_PARAMS": '',
         "GOOGLE_ANALYTICS_ACCOUNT": '',
         "GOOGLE_ANALYTICS_TRACKING_ID": '',
+        "MAX_FAILED_LOGIN_ATTEMPTS_ALLOWED": 6,
+        "MAX_FAILED_LOGIN_ATTEMPTS_LOCKOUT_PERIOD_SECS": 1800,
 
         # openedx-lms-common-settings
         "REGISTRATION_EXTRA_FIELDS": '',
@@ -127,6 +129,7 @@ config = {
         "ENABLE_ENTERPRISE_INTEGRATION": False,
         "ALLOW_AUTOMATED_SIGNUPS": True,
         "ALLOW_PUBLIC_ACCOUNT_CREATION": True,
+        "ENABLE_MAX_FAILED_LOGIN_ATTEMPTS": True,
 
         # others waffle flags, switches and settings created at init time
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,
