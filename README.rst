@@ -238,6 +238,38 @@ Set SOCIAL_MEDIA_FOOTER_URLS to a dict of social links. E.g.:
     }
 
 
+Social sharing links
+~~~~~~~~~~~~~~~~~~~~
+
+Set CUSTOM_SOCIAL_SHARING_SETTINGS as a dict with the following settings:
+
+Change the defaults to enable social sharing urls in the dashboard (set CUSTOM_COURSE_URLS)
+and the certificates.
+
+New defaults are:
+
+::
+
+    'SOCIAL_SHARING_SETTINGS': {
+        'CUSTOM_COURSE_URLS': True,
+        'DASHBOARD_FACEBOOK': True,
+        'FACEBOOK_BRAND': "{{ CUSTOM_FACEBOOK_BRAND }}",
+        'DASHBOARD_TWITTER': True,
+        'DASHBOARD_TWITTER_TEXT': None,
+        'TWITTER_BRAND': "{{ CUSTOM_TWITTER_BRAND }}",
+        'CERTIFICATE_FACEBOOK': True,
+        'CERTIFICATE_FACEBOOK_TEXT': None,
+        'CERTIFICATE_TWITTER': True,
+        'CERTIFICATE_TWITTER_TEXT': None,
+        'CERTIFICATE_LINKEDIN_MODE_TO_CERT_NAME': {
+                'honor': '{platform_name} Honor Code Credential for {course_name}',
+                'verified': '{platform_name} Verified Credential for {course_name}',
+                'professional': '{platform_name} Professional Credential for {course_name}',
+                'no-id-professional': '{platform_name} Professional Credential for {course_name}',
+        }
+    },
+
+
 Remove search box in index
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 

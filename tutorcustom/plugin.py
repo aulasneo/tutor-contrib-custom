@@ -55,6 +55,24 @@ config = {
         "SUPPORT_SITE_LINK": '',
         "SECURITY_PAGE_URL": '#',
         "ENTERPRISE_MARKETING_FOOTER_QUERY_PARAMS": {},
+        "SOCIAL_SHARING_SETTINGS": {
+            'CUSTOM_COURSE_URLS': True,
+            'DASHBOARD_FACEBOOK': True,
+            'FACEBOOK_BRAND': "{{ CUSTOM_FACEBOOK_BRAND }}",
+            'DASHBOARD_TWITTER': True,
+            'DASHBOARD_TWITTER_TEXT': None,
+            'TWITTER_BRAND': "{{ CUSTOM_TWITTER_BRAND }}",
+            'CERTIFICATE_FACEBOOK': True,
+            'CERTIFICATE_FACEBOOK_TEXT': None,
+            'CERTIFICATE_TWITTER': True,
+            'CERTIFICATE_TWITTER_TEXT': None,
+            'CERTIFICATE_LINKEDIN_MODE_TO_CERT_NAME': {
+                'honor': '{platform_name} Honor Code Credential for {course_name}',
+                'verified': '{platform_name} Verified Credential for {course_name}',
+                'professional': '{platform_name} Professional Credential for {course_name}',
+                'no-id-professional': '{platform_name} Professional Credential for {course_name}',
+            }
+        },
 
         # openedx-lms-common-settings
         "ENABLE_COURSE_DISCOVERY": True,
@@ -62,17 +80,6 @@ config = {
         "SOCIAL_AUTH_OAUTH_SECRETS": {},
 
         # openedx-lms-production-settings
-        "LMS_SOCIAL_SHARING_SETTINGS": {
-            'CUSTOM_COURSE_URLS': True,
-            'DASHBOARD_FACEBOOK': True,
-            'FACEBOOK_BRAND': "{{ CUSTOM_FACEBOOK_BRAND }}",
-            'DASHBOARD_TWITTER': True,
-            'TWITTER_BRAND': "{{ CUSTOM_TWITTER_BRAND }}",
-            'CERTIFICATE_FACEBOOK': True,
-            'CERTIFICATE_TWITTER': True,
-            'CERTIFICATE_LINKEDIN': True,
-        },
-        "ENABLE_REQUIRE_THIRD_PARTY_AUTH": False,
         "AUTH_PASSWORD_VALIDATORS": [
             {
                 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
