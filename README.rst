@@ -82,6 +82,8 @@ Available fields and their defaults are:
 - city (hidden)
 - country (hidden)
 
+Set `CUSTOM_ENABLE_DYNAMIC_REGISTRATION_FIELDS` to True (default False) to enable this feature.
+
 Marketing site
 ~~~~~~~~~~~~~~
 

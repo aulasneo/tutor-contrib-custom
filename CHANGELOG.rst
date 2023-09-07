@@ -13,6 +13,7 @@ Replace Google UA settings with GOOGLE_ANALYTICS_4_ID
 Remove unneeded patches
 Remove unneeded setting to enable persistent grades.
 Remove deprecated CUSTOM_ENABLE_SELF_PACED_COURSES.
+Add CUSTOM_ENABLE_DYNAMIC_REGISTRATION_FIELDS
 
 
 Version 14.0.0 (2023-08-29)

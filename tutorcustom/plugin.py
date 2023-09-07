@@ -73,6 +73,7 @@ config = {
                 'no-id-professional': '{platform_name} Professional Credential for {course_name}',
             }
         },
+        "ENABLE_DYNAMIC_REGISTRATION_FIELDS": False,
 
         # openedx-lms-common-settings
         "ENABLE_COURSE_DISCOVERY": True,
