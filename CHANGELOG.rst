@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 15.0.0 (2023-09-07)
 ----------
 
 Setup compatibility with tutor 15 and Olive
