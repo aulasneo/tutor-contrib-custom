@@ -125,7 +125,6 @@ config = {
 
         # others waffle flags, switches and settings created at init time
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,
-        "ENABLE_SELF_PACED_COURSES": True,
         "ENABLE_ANONYMOUS_COURSEWARE_ACCESS": True,
         "ENABLE_COURSE_EXIT_PAGE": True,
 

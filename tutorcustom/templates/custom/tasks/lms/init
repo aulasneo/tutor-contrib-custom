@@ -4,12 +4,6 @@
 ./manage.py lms waffle_delete --switches certificates.auto_certificate_generation
 {% endif %}
 
-{% if CUSTOM_ENABLE_SELF_PACED_COURSES %}
-./manage.py lms shell -c "from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration; SelfPacedConfiguration(enable_course_home_improvements=True, enabled=True).save()"
-{% else %}
-./manage.py lms shell -c "from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration; SelfPacedConfiguration(enable_course_home_improvements=True, enabled=False).save()"
-{% endif %}
-
 {% if CUSTOM_ENABLE_ANONYMOUS_COURSEWARE_ACCESS %}
 (./manage.py lms waffle_flag --list | grep seo.enable_anonymous_courseware_access) || ./manage.py lms waffle_flag --create --everyone seo.enable_anonymous_courseware_access
 {% else %}
