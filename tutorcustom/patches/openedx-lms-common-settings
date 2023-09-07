@@ -1,4 +1,3 @@
-{% if CUSTOM_REGISTRATION_EXTRA_FIELDS is defined %}REGISTRATION_EXTRA_FIELDS.update({{ CUSTOM_REGISTRATION_EXTRA_FIELDS }}){% endif %}
 # Disable search feature
 # https://github.com/overhangio/tutor/pull/622#issuecomment-1140873737
 FEATURES["ENABLE_COURSE_DISCOVERY"] = {{ CUSTOM_ENABLE_COURSE_DISCOVERY }}

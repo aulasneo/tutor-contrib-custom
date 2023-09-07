@@ -4,7 +4,7 @@ Change log
 Unreleased
 ----------
 
-Setup compatibility with tutor 14 and Olive
+Setup compatibility with tutor 15 and Olive
 Remove unused ALLOWED_HOSTS in caddyfile patch
 Remove deprecated ASSUME_ZERO_GRADE_IF_ABSENT_FOR_ALL_TESTS and ENABLE_PERSISTENT_GRADES
 (https://github.com/openedx/edx-platform/pull/30978)
