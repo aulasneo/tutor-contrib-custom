@@ -7,7 +7,7 @@
 {% if CUSTOM_ENABLE_ANONYMOUS_COURSEWARE_ACCESS %}
 (./manage.py lms waffle_flag --list | grep seo.enable_anonymous_courseware_access) || ./manage.py lms waffle_flag --create --everyone seo.enable_anonymous_courseware_access
 {% else %}
-./manage.py lms waffle_delete --flags certificates.auto_certificate_generation
+./manage.py lms waffle_delete --flags seo.enable_anonymous_courseware_access
 {% endif %}
 
 {% if CUSTOM_ENABLE_COURSE_EXIT_PAGE %}
