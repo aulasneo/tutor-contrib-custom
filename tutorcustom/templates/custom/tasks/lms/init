@@ -16,4 +16,16 @@
 ./manage.py lms waffle_delete --flags courseware.microfrontend_course_exit_page
 {% endif %}
 
+{% if CUSTOM_ENABLE_BIG_BLUE_BUTTON %}
+(./manage.py lms waffle_flag --list | grep course_live.enable_big_blue_button) || ./manage.py lms waffle_flag --create --everyone course_live.enable_big_blue_button
+{% else %}
+./manage.py lms waffle_delete --flags course_live.enable_big_blue_button
+{% endif %}
+
+{% if CUSTOM_ENABLE_COURSE_LIVE %}
+(./manage.py lms waffle_flag --list | grep course_live.enable_course_live) || ./manage.py lms waffle_flag --create --everyone course_live.enable_course_live
+{% else %}
+./manage.py lms waffle_delete --flags course_live.enable_course_live
+{% endif %}
+
 

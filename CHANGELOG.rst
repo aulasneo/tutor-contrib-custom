@@ -14,6 +14,7 @@ Remove unneeded patches
 Remove unneeded setting to enable persistent grades.
 Remove deprecated CUSTOM_ENABLE_SELF_PACED_COURSES.
 Add CUSTOM_ENABLE_DYNAMIC_REGISTRATION_FIELDS
+Add CUSTOM_ENABLE_BIG_BLUE_BUTTON
 
 
 Version 14.0.0 (2023-08-29)

@@ -128,6 +128,8 @@ config = {
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,
         "ENABLE_ANONYMOUS_COURSEWARE_ACCESS": True,
         "ENABLE_COURSE_EXIT_PAGE": True,
+        "ENABLE_BIG_BLUE_BUTTON": True,
+        "ENABLE_COURSE_LIVE": True,
 
         # caddyfile patch
         "CADDYFILE_PATCH": '',
