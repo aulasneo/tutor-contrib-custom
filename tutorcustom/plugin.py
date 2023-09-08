@@ -185,10 +185,16 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 ########################################
 
 # To run the script from templates/custom/tasks/myservice/init, add:
-hooks.Filters.COMMANDS_INIT.add_item((
-    "lms",
-    ("custom", "tasks", "lms", "init"),
-))
+with open(
+        pkg_resources.resource_filename(
+            "tutorcustom", os.path.join("templates", "custom", "tasks", "lms", "init")
+        ),
+        encoding="utf8",
+) as f:
+    hooks.Filters.CLI_DO_INIT_TASKS.add_item((
+        "lms",
+        f.read(),
+    ))
 
 
 ########################################
