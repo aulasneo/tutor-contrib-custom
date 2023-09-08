@@ -60,7 +60,7 @@ config = {
             'DASHBOARD_FACEBOOK': True,
             'FACEBOOK_BRAND': "{{ CUSTOM_FACEBOOK_BRAND }}",
             'DASHBOARD_TWITTER': True,
-            'DASHBOARD_TWITTER_TEXT': None,
+            # 'DASHBOARD_TWITTER_TEXT': None,
             'TWITTER_BRAND': "{{ CUSTOM_TWITTER_BRAND }}",
             'CERTIFICATE_FACEBOOK': True,
             'CERTIFICATE_FACEBOOK_TEXT': None,
