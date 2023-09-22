@@ -334,6 +334,29 @@ disable account locking after multiple failed attempts.
 Set `CUSTOM_MAX_FAILED_LOGIN_ATTEMPTS_ALLOWED` (default 6) and
 `CUSTOM_MAX_FAILED_LOGIN_ATTEMPTS_LOCKOUT_PERIOD_SECS` (default 1800) to adjust the feature.
 
+Rate limits for API calls
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Open edX uses `django-ratelimit <https://django-ratelimit.readthedocs.io/en/stable/index.html>`_
+to limit the number of received requests from the same source in certain time periods.
+We include the following settings to modify the default behavior:
+
+* CUSTOM_RATELIMIT_ENABLE (default True): Globally enable the rate limit function.
+* CUSTOM_RATELIMIT_RATE (default '120/m'): Limit to access the `/oauth2/access_token/ API <https://github.com/openedx/edx-platform/blob/3d33b8cf9a62589bf964621f0a63b419837872c5/openedx/core/djangoapps/oauth_dispatch/views.py#L99>`_
+* CUSTOM_LOGISTRATION_RATELIMIT_RATE (default '100/5m'): Limit the `user logins <https://github.com/openedx/edx-platform/blob/3d33b8cf9a62589bf964621f0a63b419837872c5/openedx/core/djangoapps/user_authn/views/login.py#L502>`_ per source
+* CUSTOM_LOGISTRATION_PER_EMAIL_RATELIMIT_RATE (default '30/m' per email): Limit the `user logins <https://github.com/openedx/edx-platform/blob/3d33b8cf9a62589bf964621f0a63b419837872c5/openedx/core/djangoapps/user_authn/views/login.py#L502>`_ per email
+* CUSTOM_LOGISTRATION_API_RATELIMIT (default '20/m'): Limit the `MFEContextView API calls <https://github.com/openedx/edx-platform/blob/3d33b8cf9a62589bf964621f0a63b419837872c5/openedx/core/djangoapps/user_authn/api/views.py#L22>`_
+* CUSTOM_LOGIN_AND_REGISTER_FORM_RATELIMIT (default '100/5m'): Limit the number of gets to the `login and registration form view <https://github.com/openedx/edx-platform/blob/3d33b8cf9a62589bf964621f0a63b419837872c5/openedx/core/djangoapps/user_authn/views/login_form.py#L132>`_.
+* CUSTOM_RESET_PASSWORD_TOKEN_VALIDATE_API_RATELIMIT (default '30/7d'): Limit the number of `password reset token validations <https://github.com/openedx/edx-platform/blob/3d33b8cf9a62589bf964621f0a63b419837872c5/openedx/core/djangoapps/user_authn/views/password_reset.py#L674>`_.
+* CUSTOM_RESET_PASSWORD_API_RATELIMIT (default '30/7d'): Limit `password resets <https://github.com/openedx/edx-platform/blob/3d33b8cf9a62589bf964621f0a63b419837872c5/openedx/core/djangoapps/user_authn/views/password_reset.py#L714>`_.
+* CUSTOM_OPTIONAL_FIELD_API_RATELIMIT (default '10/h'): Not used
+* CUSTOM_REGISTRATION_VALIDATION_RATELIMIT (default '30/7d'): Limit requests to the `registration validation API <https://github.com/openedx/edx-platform/blob/3d33b8cf9a62589bf964621f0a63b419837872c5/openedx/core/djangoapps/user_authn/views/register.py#L853>`_ (POST /api/user/v1/validation/registration/)
+* CUSTOM_REGISTRATION_RATELIMIT (default '60/7d'): Limit requests to the `registration API <https://github.com/openedx/edx-platform/blob/3d33b8cf9a62589bf964621f0a63b419837872c5/openedx/core/djangoapps/user_authn/views/register.py#L540>`_.
+* CUSTOM_DEFAULT_THROTTLE_RATES: Limit calls to APIView subclasses. It must be a dict with values to override.
+Defaults: 'user': '60/minute', 'service_user': '800/minute', 'registration_validation': '30/minute', 'high_service_user': '2000/minute',
+
+For rate formats, see the `ratelimit documentation <https://django-ratelimit.readthedocs.io/en/stable/usage.html>`_.
+To disable a rate limit, set it to None.
 
 Usage
 -----

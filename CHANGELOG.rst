@@ -1,7 +1,12 @@
 Change log
 ==========
 
-Version 15.0.1 (2023-09-07)
+Unreleased
+----------
+
+Add settings to modify the rate limits for API calls.
+
+Version 14.0.1 (2023-09-06)
 ----------
 
 Add capability to disable and/or adjust the maximum student failed login attempts.
