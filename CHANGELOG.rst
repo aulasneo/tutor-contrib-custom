@@ -1,6 +1,11 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+Add settings to modify the rate limits for API calls.
+
 Version 14.0.1 (2023-09-06)
 ----------
 
