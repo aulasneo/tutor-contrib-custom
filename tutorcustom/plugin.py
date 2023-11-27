@@ -140,6 +140,9 @@ config = {
 
         # caddyfile patch
         "CADDYFILE_PATCH": '',
+        "CADDYFILE_LMS": '',
+        "CADDYFILE_CMS": '',
+        "CADDYFILE_GLOBAL": '',
 
     }
 }
