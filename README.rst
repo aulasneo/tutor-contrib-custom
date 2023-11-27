@@ -358,6 +358,19 @@ Defaults: 'user': '60/minute', 'service_user': '800/minute', 'registration_valid
 For rate formats, see the `ratelimit documentation <https://django-ratelimit.readthedocs.io/en/stable/usage.html>`_.
 To disable a rate limit, set it to None.
 
+Caddyfile patches
+~~~~~~~~~~~~~~~~~
+
+Use ``CADDYFILE_PATCH``, ``CADDYFILE_LMS``, ``CADDYFILE_CMS`` and ``CADDYFILE_GLOBAL`` to
+add caddyfile directives to each section.
+
+E.g.:
+
+::
+
+    CUSTOM_CADDYFILE_LMS: "redir / /login"
+
+
 Usage
 -----
 

@@ -1,6 +1,11 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+Add caddyfile patches for lms, cms and global sections.
+
 Version 15.1.0 (2023-09-25)
 ----------
 
