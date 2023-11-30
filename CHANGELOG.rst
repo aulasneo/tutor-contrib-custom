@@ -4,6 +4,7 @@ Change log
 Unreleased
 ----------
 
+Add COURSE_BLOCKS_API_EXTRA_FIELDS setting, with default to [('course', 'other_course_settings')]
 Add caddyfile patches for lms, cms and global sections.
 
 Version 14.1.0 (2023-09-25)

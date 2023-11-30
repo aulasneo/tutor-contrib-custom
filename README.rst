@@ -282,6 +282,22 @@ E.g.:
 
     CUSTOM_CADDYFILE_LMS: "redir / /login"
 
+Other course settings
+~~~~~~~~~~~~~~~~~~~~~
+
+The ``Other course settings`` field editable in Studio's advanced settings is now
+enabled by default. To disable, set ``CUSTOM_ENABLE_OTHER_COURSE_SETTINGS: False``.
+To make this field available via the course blocks API, make sure it is included
+in the course blocks API extra fields (see next).
+
+Course blocks API extra fields
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``COURSE_BLOCKS_API_EXTRA_FIELDS`` setting defines which additional fields are
+returned by the blocks api (``https://${LMS_HOST}/api/courses/v2/blocks/``).
+This API is managed by the `BlocksView <https://github.com/openedx/edx-platform/blob/285f1fbfd758c1bb51f8e6af66adfdc42080df87/lms/djangoapps/course_api/blocks/views.py#L30>`_ view.
+
+The new default is ``[('course', 'other_course_settings')]``.
 
 Usage
 -----
