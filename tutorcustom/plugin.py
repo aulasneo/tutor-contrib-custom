@@ -127,6 +127,9 @@ config = {
         "ENTRANCE_EXAMS": False,
         "SHOW_PROGRESS_BAR": True,
         "ENABLE_OTHER_COURSE_SETTINGS": True,
+        "COURSE_BLOCKS_API_EXTRA_FIELDS": [
+            ('course', 'other_course_settings')
+        ],
         "LICENSING": True,
         "SKIP_EMAIL_VALIDATION": False,
         "ENABLE_ENTERPRISE_INTEGRATION": False,
