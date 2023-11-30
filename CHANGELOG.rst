@@ -1,6 +1,11 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+Add COURSE_BLOCKS_API_EXTRA_FIELDS setting, with default to [('course', 'other_course_settings')]
+
 Version 15.2.0 (2023-11-27)
 ----------
 
