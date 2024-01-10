@@ -1,3 +1,45 @@
+Change log
+==========
+
+Version 16.0.1 (2024-01-10)
+----------
+Fix: add android and ios sku to the default mode (https://github.com/openedx/edx-platform/pull/31512)
+
+Version 16.0.0 (2023-11-17)
+----------
+Upgrade to Palm
+
+Version 15.1.0 (2023-09-25)
+----------
+
+Add settings to modify the rate limits for API calls.
+
+Version 14.0.1 (2023-09-06)
+----------
+
+Add capability to disable and/or adjust the maximum student failed login attempts.
+
+Version 15.0.0 (2023-09-07)
+----------
+
+Setup compatibility with tutor 15 and Olive
+Remove unused ALLOWED_HOSTS in caddyfile patch
+Remove deprecated ASSUME_ZERO_GRADE_IF_ABSENT_FOR_ALL_TESTS and ENABLE_PERSISTENT_GRADES
+(https://github.com/openedx/edx-platform/pull/30978)
+Remove deprecated BLOCK_STRUCTURES_SETTINGS['PRUNING_ACTIVE'] (https://github.com/openedx/public-engineering/issues/31)
+Replace Google UA settings with GOOGLE_ANALYTICS_4_ID
+Remove unneeded patches
+Remove unneeded setting to enable persistent grades.
+Remove deprecated CUSTOM_ENABLE_SELF_PACED_COURSES.
+Add CUSTOM_ENABLE_DYNAMIC_REGISTRATION_FIELDS
+Add CUSTOM_ENABLE_BIG_BLUE_BUTTON
+
+
+Version 14.0.0 (2023-08-29)
+----------
+
+Set tutor dependency to 14.x.x
+
 Version 0.7.0 (2023-08-17)
 ----------
 

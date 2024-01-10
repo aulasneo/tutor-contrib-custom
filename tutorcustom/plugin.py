@@ -17,13 +17,12 @@ config = {
         "FACEBOOK_BRAND": "",
         "TWITTER_BRAND": "",
         "BADGR_ENABLE_NOTIFICATIONS": True,
-        "BLOCK_STRUCTURES_SETTINGS_PRUNING_ACTIVE": True,
         "DEFAULT_MOBILE_AVAILABLE": True,
-        "ENABLE_COMPREHENSIVE_THEMING": True,
+        "ENABLE_COMPREHENSIVE_THEMING": True,   # Already true as default
         # Set to True to prevent using username/password login and registration and only allow
         #   authentication with third party auth
         "ENABLE_REQUIRE_THIRD_PARTY_AUTH": False,
-        "SEARCH_SKIP_SHOW_IN_CATALOG_FILTERING": False,
+        "SEARCH_SKIP_SHOW_IN_CATALOG_FILTERING": False, # Already false as default
         "WIKI_ENABLED": False,
         "COURSE_MODE_DEFAULTS": {
             "name": "Honor",
@@ -34,53 +33,58 @@ config = {
             "expiration_datetime": None,
             "min_price": 0,
             "sku": None,
-            "suggested_prices": ""
-        },
-        "SOCIAL_MEDIA_FOOTER_URLS": {},
+            "suggested_prices": "",
+            'android_sku': None,
+            'ios_sku': None,
+        }, # Default is audit mode
         "COMPLETION_AGGREGATOR_URL": "https://",
-        "MKTG_URL_OVERRIDES": {},
-        "MKTG_URLS": {},
         "MKTG_URL_LINK_MAP": {
             'ABOUT': 'about',
-            'CONTACT': 'contact',
-            'FAQ': 'help',
-            'COURSES': 'courses',
-            'ROOT': 'root',
-            'TOS': 'tos',
-            'HONOR': 'honor',
-            'TOS_AND_HONOR': 'edx-terms-service',
-            'PRIVACY': 'privacy',
-            'PRESS': 'press',
             'BLOG': 'blog',
+            'CONTACT': 'contact',
+            'COURSES': 'courses',
             'DONATE': 'donate',
+            'FAQ': 'help',
+            'HONOR': 'honor',
+            'PRESS': 'press',
+            'PRIVACY': 'privacy',
+            'ROOT': 'root',
             'SITEMAP.XML': 'sitemap_xml',
-            'WHAT_IS_VERIFIED_CERT': 'verified-certificate',
+            'TOS': 'tos',
+            'TOS_AND_HONOR': 'edx-terms-service',
+            'WHAT_IS_VERIFIED_CERT': 'verified-certificate'
         },
-        "SUPPORT_SITE_LINK": '#',
+        "SUPPORT_SITE_LINK": '',
         "SECURITY_PAGE_URL": '#',
-        "ENTERPRISE_MARKETING_FOOTER_QUERY_PARAMS": '',
-        "GOOGLE_ANALYTICS_ACCOUNT": '',
-        "GOOGLE_ANALYTICS_TRACKING_ID": '',
+        "ENTERPRISE_MARKETING_FOOTER_QUERY_PARAMS": {},
+        "SOCIAL_SHARING_SETTINGS": {
+            'CUSTOM_COURSE_URLS': True,
+            'DASHBOARD_FACEBOOK': True,
+            'FACEBOOK_BRAND': "{{ CUSTOM_FACEBOOK_BRAND }}",
+            'DASHBOARD_TWITTER': True,
+            # 'DASHBOARD_TWITTER_TEXT': None,
+            'TWITTER_BRAND': "{{ CUSTOM_TWITTER_BRAND }}",
+            'CERTIFICATE_FACEBOOK': True,
+            'CERTIFICATE_FACEBOOK_TEXT': None,
+            'CERTIFICATE_TWITTER': True,
+            'CERTIFICATE_TWITTER_TEXT': None,
+            'CERTIFICATE_LINKEDIN_MODE_TO_CERT_NAME': {
+                'honor': '{platform_name} Honor Code Credential for {course_name}',
+                'verified': '{platform_name} Verified Credential for {course_name}',
+                'professional': '{platform_name} Professional Credential for {course_name}',
+                'no-id-professional': '{platform_name} Professional Credential for {course_name}',
+            }
+        },
+        "ENABLE_DYNAMIC_REGISTRATION_FIELDS": False,
+        "MAX_FAILED_LOGIN_ATTEMPTS_ALLOWED": True,
+        "MAX_FAILED_LOGIN_ATTEMPTS_LOCKOUT_PERIOD_SECS": 1800,
 
         # openedx-lms-common-settings
-        "REGISTRATION_EXTRA_FIELDS": '',
         "ENABLE_COURSE_DISCOVERY": True,
         "AUTHENTICATION_BACKENDS": [],
         "SOCIAL_AUTH_OAUTH_SECRETS": {},
 
         # openedx-lms-production-settings
-        "LMS_SOCIAL_SHARING_SETTINGS": {
-            'CUSTOM_COURSE_URLS': True,
-            'DASHBOARD_FACEBOOK': True,
-            'FACEBOOK_BRAND': "{{ CUSTOM_FACEBOOK_BRAND }}",
-            'DASHBOARD_TWITTER': True,
-            'TWITTER_BRAND': "{{ CUSTOM_TWITTER_BRAND }}",
-            'CERTIFICATE_FACEBOOK': True,
-            'CERTIFICATE_TWITTER': True,
-            'CERTIFICATE_LINKEDIN': True,
-        },
-        'ALLOWED_HOSTS': [],
-        "ENABLE_REQUIRE_THIRD_PARTY_AUTH": False,
         "AUTH_PASSWORD_VALIDATORS": [
             {
                 'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'
@@ -96,15 +100,11 @@ config = {
         ],
 
         # openedx-cms-production-settings
-        "CMS_SOCIAL_SHARING_SETTINGS": {
-            'CUSTOM_COURSE_URLS': True,
-        },
 
         # common-env-features
         "ALLOW_HIDING_DISCUSSION_TAB": True,
         "CUSTOM_COURSES_EDX": True,
         "ALLOW_COURSE_STAFF_GRADE_DOWNLOADS": True,
-        "ASSUME_ZERO_GRADE_IF_ABSENT_FOR_ALL_TESTS": True,
         "CUSTOM_CERTIFICATE_TEMPLATES_ENABLED": True,
         "ENABLE_ANNOUNCEMENTS": True,
         "ENABLE_AUTOMATED_SIGNUPS_EXTRA_FIELDS": True,
@@ -127,13 +127,14 @@ config = {
         "ENABLE_ENTERPRISE_INTEGRATION": False,
         "ALLOW_AUTOMATED_SIGNUPS": True,
         "ALLOW_PUBLIC_ACCOUNT_CREATION": True,
+        "ENABLE_MAX_FAILED_LOGIN_ATTEMPTS": True,
 
         # others waffle flags, switches and settings created at init time
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,
-        "ENABLE_SELF_PACED_COURSES": True,
         "ENABLE_ANONYMOUS_COURSEWARE_ACCESS": True,
-        "ENABLE_PERSISTENT_GRADES": True,
         "ENABLE_COURSE_EXIT_PAGE": True,
+        "ENABLE_BIG_BLUE_BUTTON": True,
+        "ENABLE_COURSE_LIVE": True,
 
         # caddyfile patch
         "CADDYFILE_PATCH": '',
@@ -186,10 +187,16 @@ hooks.Filters.CONFIG_OVERRIDES.add_items(
 ########################################
 
 # To run the script from templates/custom/tasks/myservice/init, add:
-hooks.Filters.COMMANDS_INIT.add_item((
-    "lms",
-    ("custom", "tasks", "lms", "init"),
-))
+with open(
+        pkg_resources.resource_filename(
+            "tutorcustom", os.path.join("templates", "custom", "tasks", "lms", "init")
+        ),
+        encoding="utf8",
+) as f:
+    hooks.Filters.CLI_DO_INIT_TASKS.add_item((
+        "lms",
+        f.read(),
+    ))
 
 
 ########################################
