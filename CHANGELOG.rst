@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 16.0.1 (2024-01-10)
 ----------
 Fix: add android and ios sku to the default mode (https://github.com/openedx/edx-platform/pull/31512)
 
