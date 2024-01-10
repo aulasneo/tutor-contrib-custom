@@ -33,7 +33,9 @@ config = {
             "expiration_datetime": None,
             "min_price": 0,
             "sku": None,
-            "suggested_prices": ""
+            "suggested_prices": "",
+            'android_sku': None,
+            'ios_sku': None,
         }, # Default is audit mode
         "COMPLETION_AGGREGATOR_URL": "https://",
         "MKTG_URL_LINK_MAP": {

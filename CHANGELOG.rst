@@ -1,6 +1,10 @@
 Change log
 ==========
 
+Unreleased
+----------
+Fix: add android and ios sku to the default mode (https://github.com/openedx/edx-platform/pull/31512)
+
 Version 16.0.0 (2023-11-17)
 ----------
 Upgrade to Palm
