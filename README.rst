@@ -358,6 +358,50 @@ Defaults: 'user': '60/minute', 'service_user': '800/minute', 'registration_valid
 For rate formats, see the `ratelimit documentation <https://django-ratelimit.readthedocs.io/en/stable/usage.html>`_.
 To disable a rate limit, set it to None.
 
+Caddyfile patches
+~~~~~~~~~~~~~~~~~
+
+Use ``CADDYFILE_PATCH``, ``CADDYFILE_LMS``, ``CADDYFILE_CMS`` and ``CADDYFILE_GLOBAL`` to
+add caddyfile directives to each section.
+
+E.g.:
+
+::
+
+    CUSTOM_CADDYFILE_LMS: "redir / /login"
+
+Other course settings
+~~~~~~~~~~~~~~~~~~~~~
+
+The ``Other course settings`` field editable in Studio's advanced settings is now
+enabled by default. To disable, set ``CUSTOM_ENABLE_OTHER_COURSE_SETTINGS: False``.
+To make this field available via the course blocks API, make sure it is included
+in the course blocks API extra fields (see next).
+
+Course blocks API extra fields
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``COURSE_BLOCKS_API_EXTRA_FIELDS`` setting defines which additional fields are
+returned by the blocks api (``https://${LMS_HOST}/api/courses/v2/blocks/``).
+This API is managed by the `BlocksView <https://github.com/openedx/edx-platform/blob/285f1fbfd758c1bb51f8e6af66adfdc42080df87/lms/djangoapps/course_api/blocks/views.py#L30>`_ view.
+
+The new default is ``[('course', 'other_course_settings')]``.
+
+Video uploads feature enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Video uploads is enabled now by default.
+Use the following variables to customize it behaviour:
+
+- CUSTOM_ENABLE_VIDEO_UPLOAD_PIPELINE: Set to False to disable (enabled by default)
+- CUSTOM_VIDEO_UPLOAD_PIPELINE_ROOT_PATH: Path inside the S3 bucket to store videos. By default "videos".
+- CUSTOM_VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET: Set the S3 bucket name. By default it uses the tutor-contrib-s3's configuration S3_STORAGE_BUCKET.
+- CUSTOM_VIDEO_IMAGE_UPLOAD_ENABLED: Set to False to disable the possibility to upload a cover image to the video
+  (enabled by default). To activate a change in this setting you must initialize Tutor
+
+
+
+
 Usage
 -----
 

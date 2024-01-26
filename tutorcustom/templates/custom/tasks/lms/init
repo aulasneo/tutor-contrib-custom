@@ -28,4 +28,8 @@
 ./manage.py lms waffle_delete --flags course_live.enable_course_live
 {% endif %}
 
-
+{% if CUSTOM_VIDEO_IMAGE_UPLOAD_ENABLED %}
+(./manage.py lms waffle_switch --list | grep videos.video_image_upload_enabled) || ./manage.py lms waffle_switch --create videos.video_image_upload_enabled on
+{% else %}
+./manage.py lms waffle_delete --switches videos.video_image_upload_enabled
+{% endif %}
