@@ -1,6 +1,11 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+Enable video upload feature by default.
+
 Version 15.3.0 (2023-11-30)
 ----------
 

@@ -387,6 +387,21 @@ This API is managed by the `BlocksView <https://github.com/openedx/edx-platform/
 
 The new default is ``[('course', 'other_course_settings')]``.
 
+Video uploads feature enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Video uploads is enabled now by default.
+Use the following variables to customize it behaviour:
+
+- CUSTOM_ENABLE_VIDEO_UPLOAD_PIPELINE: Set to False to disable (enabled by default)
+- CUSTOM_VIDEO_UPLOAD_PIPELINE_ROOT_PATH: Path inside the S3 bucket to store videos. By default "videos".
+- CUSTOM_VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET: Set the S3 bucket name. By default it uses the tutor-contrib-s3's configuration S3_STORAGE_BUCKET.
+- CUSTOM_VIDEO_IMAGE_UPLOAD_ENABLED: Set to False to disable the possibility to upload a cover image to the video
+  (enabled by default). To activate a change in this setting you must initialize Tutor
+
+
+
+
 Usage
 -----
 

@@ -97,7 +97,11 @@ config = {
             }
         ],
 
-        # openedx-cms-production-settings
+        # openedx-cms-common-settings
+        "ENABLE_VIDEO_UPLOAD_PIPELINE": True,
+        "VIDEO_UPLOAD_PIPELINE_ROOT_PATH": "videos",
+        "VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET": "{% if S3_STORAGE_BUCKET is defined %}{{ S3_STORAGE_BUCKET }}{% else %}'Please set VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET with the bucket name'{% endif %}",
+        "VIDEO_IMAGE_UPLOAD_ENABLED": True,
 
         # common-env-features
         "ALLOW_HIDING_DISCUSSION_TAB": True,
