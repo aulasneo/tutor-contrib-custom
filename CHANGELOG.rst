@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 15.4.0 (2024-01-26)
 ----------
 
 Enable video upload feature by default.
