@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 16.2.0 (2024-02-16)
 ----------
 
 Enable OpenSearch index configuration
