@@ -1,6 +1,11 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+Enable OpenSearch index configuration
+
 Version 16.1.0 (2024-01-26)
 ----------
 

@@ -78,6 +78,7 @@ config = {
         "ENABLE_DYNAMIC_REGISTRATION_FIELDS": False,
         "MAX_FAILED_LOGIN_ATTEMPTS_ALLOWED": True,
         "MAX_FAILED_LOGIN_ATTEMPTS_LOCKOUT_PERIOD_SECS": 1800,
+        "ELASTIC_SEARCH_INDEX_PREFIX": "",
 
         # openedx-lms-common-settings
         "ENABLE_COURSE_DISCOVERY": True,

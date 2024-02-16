@@ -399,7 +399,11 @@ Use the following variables to customize it behaviour:
 - CUSTOM_VIDEO_IMAGE_UPLOAD_ENABLED: Set to False to disable the possibility to upload a cover image to the video
   (enabled by default). To activate a change in this setting you must initialize Tutor
 
+OpenSearch index prefix
+~~~~~~~~~~~~~~~~~~~~~~~
 
+You can use a single OpenSearch cluster for multiple Open edX instances.
+Set "CUSTOM_ELASTIC_SEARCH_INDEX_PREFIX" to a string identifying your instance.
 
 
 Usage
