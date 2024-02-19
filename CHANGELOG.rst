@@ -1,6 +1,11 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+Fixed bug in setting video upload pipeline
+
 Version 15.4.1 (2024-08-01)
 ----------
 
