@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 16.2.1 (2024-02-19)
 ----------
 
 Fixed bug in setting video upload pipeline
