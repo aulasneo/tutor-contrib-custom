@@ -1,6 +1,16 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+- Feat: Upgrade to Quince
+- Depr: Remove unneeded COMPLETION_AGGREGATOR_URL (fixed in https://github.com/openedx/edx-platform/pull/30331)
+- Fix: Correct default value of MAX_FAILED_LOGIN_ATTEMPTS_ALLOWED: 6
+- Depr: Remove unneeded ENABLE_BIG_BLUE_BUTTON and ENABLE_COURSE_LIVE.
+  Both are enabled by default as per https://github.com/openedx/edx-platform/pull/33998/
+- Fix: Replace pkg_resources by importlib_resources
+
 Version 16.2.2 (2024-06-26)
 ----------
 Add COURSE_BLOCKS_API_EXTRA_FIELDS setting, with default to [('course', 'other_course_settings')]

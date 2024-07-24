@@ -318,14 +318,6 @@ Google Analytics
 Set ``CUSTOM_GOOGLE_ANALYTICS_4_ID`` to your Google Analytics 4 ID.
 Then rebuild openedx and mfe.
 
-Course Live
-~~~~~~~~~~~
-
-Set `CUSTOM_ENABLE_COURSE_LIVE` to False (custom default True) to disable the course live feature.
-To disable Big Blue Button support, set `CUSTOM_ENABLE_BIG_BLUE_BUTTON` to False (custom default True).
-
-Then run `tutor {dev|local|k8s} init --limit custom` to enable it.
-
 Maximum login failures allowed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

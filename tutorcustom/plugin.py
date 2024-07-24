@@ -1,15 +1,10 @@
 from glob import glob
 import os
-import pkg_resources
+import importlib_resources
 
 from tutor import hooks
 
 from .__about__ import __version__
-
-
-########################################
-# CONFIGURATION
-########################################
 
 config = {
     'defaults': {
@@ -38,7 +33,6 @@ config = {
             'android_sku': None,
             'ios_sku': None,
         },  # Default is audit mode
-        "COMPLETION_AGGREGATOR_URL": "https://",
         "MKTG_URL_LINK_MAP": {
             'ABOUT': 'about',
             'BLOG': 'blog',
@@ -77,7 +71,7 @@ config = {
             }
         },
         "ENABLE_DYNAMIC_REGISTRATION_FIELDS": False,
-        "MAX_FAILED_LOGIN_ATTEMPTS_ALLOWED": True,
+        "MAX_FAILED_LOGIN_ATTEMPTS_ALLOWED": 6,
         "MAX_FAILED_LOGIN_ATTEMPTS_LOCKOUT_PERIOD_SECS": 1800,
         "ELASTIC_SEARCH_INDEX_PREFIX": "",
 
@@ -104,7 +98,9 @@ config = {
         # openedx-cms-common-settings
         "ENABLE_VIDEO_UPLOAD_PIPELINE": True,
         "VIDEO_UPLOAD_PIPELINE_ROOT_PATH": "videos",
-        "VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET": "{% if S3_STORAGE_BUCKET is defined %}{{ S3_STORAGE_BUCKET }}{% else %}'Please set VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET with the bucket name'{% endif %}",
+        "VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET": "{% if S3_STORAGE_BUCKET is defined %}{{ S3_STORAGE_BUCKET }}"
+                                               "{% else %}'Please set VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET with "
+                                               "the bucket name'{% endif %}",
         "VIDEO_IMAGE_UPLOAD_ENABLED": True,
 
         # common-env-features
@@ -142,8 +138,6 @@ config = {
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,
         "ENABLE_ANONYMOUS_COURSEWARE_ACCESS": True,
         "ENABLE_COURSE_EXIT_PAGE": True,
-        "ENABLE_BIG_BLUE_BUTTON": True,
-        "ENABLE_COURSE_LIVE": True,
 
         # caddyfile patch
         "CADDYFILE_PATCH": '',
@@ -153,9 +147,6 @@ config = {
 
 hooks.Filters.CONFIG_DEFAULTS.add_items(
     [
-        # Add your new settings that have default values here.
-        # Each new setting is a pair: (setting_name, default_value).
-        # Prefix your setting names with 'CUSTOM_'.
         (f"CUSTOM_{key}", value)
         for key, value in config['defaults'].items()
     ]
@@ -170,104 +161,26 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
     ]
 )
 
-hooks.Filters.CONFIG_UNIQUE.add_items(
-    [
-        # Add settings that don't have a reasonable default for all users here.
-        # For instance: passwords, secret keys, etc.
-        # Each new setting is a pair: (setting_name, unique_generated_value).
-        # Prefix your setting names with 'CUSTOM_'.
-        # For example:
-        # ("CUSTOM_SECRET_KEY", "{{ 24|random_string }}"),
-    ]
-)
-
-hooks.Filters.CONFIG_OVERRIDES.add_items(
-    [
-        # Danger zone!
-        # Add values to override settings from Tutor core or other plugins here.
-        # Each override is a pair: (setting_name, new_value). For example:
-        # ("PLATFORM_NAME", "My platform"),
-    ]
-)
-
-
-########################################
-# INITIALIZATION TASKS
-########################################
-
-# To run the script from templates/custom/tasks/myservice/init, add:
+# init script
 with open(
-        pkg_resources.resource_filename(
-            "tutorcustom", os.path.join("templates", "custom", "tasks", "lms", "init")
-        ),
-        encoding="utf8",
-) as f:
-    hooks.Filters.CLI_DO_INIT_TASKS.add_item((
-        "lms",
-        f.read(),
-    ))
+        str(importlib_resources.files("tutorcustom") / "templates" / "custom" / "tasks" / "lms" / "init"),
+        encoding="utf-8",
+) as task_file:
+    hooks.Filters.CLI_DO_INIT_TASKS.add_item(("lms", task_file.read()))
 
-
-########################################
-# DOCKER IMAGE MANAGEMENT
-########################################
-
-# To build an image with `tutor images build myimage`, add a Dockerfile to templates/custom/build/myimage and write:
-# hooks.Filters.IMAGES_BUILD.add_item((
-#     "myimage",
-#     ("plugins", "custom", "build", "myimage"),
-#     "docker.io/myimage:{{ CUSTOM_VERSION }}",
-#     (),
-# )
-
-# To pull/push an image with `tutor images pull myimage` and `tutor images push myimage`, write:
-# hooks.Filters.IMAGES_PULL.add_item((
-#     "myimage",
-#     "docker.io/myimage:{{ CUSTOM_VERSION }}",
-# )
-# hooks.Filters.IMAGES_PUSH.add_item((
-#     "myimage",
-#     "docker.io/myimage:{{ CUSTOM_VERSION }}",
-# )
-
-
-########################################
-# TEMPLATE RENDERING
-# (It is safe & recommended to leave
-#  this section as-is :)
-########################################
-
-hooks.Filters.ENV_TEMPLATE_ROOTS.add_items(
-    # Root paths for template files, relative to the project root.
-    [
-        pkg_resources.resource_filename("tutorcustom", "templates"),
-    ]
+# Add the "templates" folder as a template root
+hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(
+    str(importlib_resources.files("tutorcustom") / "templates")
 )
 
 hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
-    # For each pair (source_path, destination_path):
-    # templates at ``source_path`` (relative to your ENV_TEMPLATE_ROOTS) will be
-    # rendered to ``destination_path`` (relative to your Tutor environment).
     [
         ("custom/build", "plugins"),
         ("custom/apps", "plugins"),
     ],
 )
 
-
-########################################
-# PATCH LOADING
-# (It is safe & recommended to leave
-#  this section as-is :)
-########################################
-
-# For each file in tutorcustom/patches,
-# apply a patch based on the file's name and contents.
-for path in glob(
-    os.path.join(
-        pkg_resources.resource_filename("tutorcustom", "patches"),
-        "*",
-    )
-):
+# Load patches from files
+for path in glob(str(importlib_resources.files("tutorcustom") / "patches" / "*")):
     with open(path, encoding="utf-8") as patch_file:
         hooks.Filters.ENV_PATCHES.add_item((os.path.basename(path), patch_file.read()))
