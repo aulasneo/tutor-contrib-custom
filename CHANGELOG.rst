@@ -1,7 +1,34 @@
 Change log
 ==========
 
-Version 14.1.0 (2023-09-25)
+Version 16.2.2 (2024-06-26)
+----------
+Add COURSE_BLOCKS_API_EXTRA_FIELDS setting, with default to [('course', 'other_course_settings')]
+
+Version 16.2.1 (2024-02-19)
+----------
+
+Fixed bug in setting video upload pipeline
+
+Version 16.2.0 (2024-02-16)
+----------
+
+Enable OpenSearch index configuration
+
+Version 16.1.0 (2024-01-26)
+----------
+
+Enable video upload feature by default.
+
+Version 16.0.1 (2024-01-10)
+----------
+Fix: add android and ios sku to the default mode (https://github.com/openedx/edx-platform/pull/31512)
+
+Version 16.0.0 (2023-11-17)
+----------
+Upgrade to Palm
+
+Version 15.1.0 (2023-09-25)
 ----------
 
 Add settings to modify the rate limits for API calls.
@@ -10,6 +37,22 @@ Version 14.0.1 (2023-09-06)
 ----------
 
 Add capability to disable and/or adjust the maximum student failed login attempts.
+
+Version 15.0.0 (2023-09-07)
+----------
+
+Setup compatibility with tutor 15 and Olive
+Remove unused ALLOWED_HOSTS in caddyfile patch
+Remove deprecated ASSUME_ZERO_GRADE_IF_ABSENT_FOR_ALL_TESTS and ENABLE_PERSISTENT_GRADES
+(https://github.com/openedx/edx-platform/pull/30978)
+Remove deprecated BLOCK_STRUCTURES_SETTINGS['PRUNING_ACTIVE'] (https://github.com/openedx/public-engineering/issues/31)
+Replace Google UA settings with GOOGLE_ANALYTICS_4_ID
+Remove unneeded patches
+Remove unneeded setting to enable persistent grades.
+Remove deprecated CUSTOM_ENABLE_SELF_PACED_COURSES.
+Add CUSTOM_ENABLE_DYNAMIC_REGISTRATION_FIELDS
+Add CUSTOM_ENABLE_BIG_BLUE_BUTTON
+
 
 Version 14.0.0 (2023-08-29)
 ----------

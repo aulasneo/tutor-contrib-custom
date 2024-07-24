@@ -82,6 +82,8 @@ Available fields and their defaults are:
 - city (hidden)
 - country (hidden)
 
+Set `CUSTOM_ENABLE_DYNAMIC_REGISTRATION_FIELDS` to True (default False) to enable this feature.
+
 Marketing site
 ~~~~~~~~~~~~~~
 
@@ -103,6 +105,37 @@ Else:
     - Set the marketeting URLs in CUSTOM_MKTG_URL_LINK_MAP
 
 Any setting configured in CUSTOM_MKTG_URL_OVERRIDES will override CUSTOM_MKTG_URLS and CUSTOM_MKTG_URL_LINK_MAP.
+
+Default MKTG_URLS:
+
+::
+
+        "MKTG_URLS": {
+            'ABOUT': '/about',
+            'ACCESSIBILITY': '/accessibility',
+            'AFFILIATES': '/affiliate-program',
+            'BLOG': '/blog',
+            'CAREERS': '/careers',
+            'CONTACT': '/support/contact_us',
+            'COURSES': '/course',
+            'DONATE': '/donate',
+            'ENTERPRISE': '/enterprise',
+            'FAQ': '/student-faq',
+            'HONOR': '/edx-terms-service',
+            'HOW_IT_WORKS': '/how-it-works',
+            'MEDIA_KIT': '/media-kit',
+            'NEWS': '/news-announcements',
+            'PRESS': '/press',
+            'PRIVACY': '/edx-privacy-policy',
+            'ROOT': <LMS base url>,
+            'SCHOOLS': '/schools-partners',
+            'SITE_MAP': '/sitemap',
+            'TOS': '/edx-terms-service',
+            'TOS_AND_HONOR': '/edx-terms-service',
+            'TRADEMARKS': '/trademarks',
+            'WHAT_IS_VERIFIED_CERT': '/verified-certificate'
+        },
+
 
 Footer links
 ~~~~~~~~~~~~
@@ -188,6 +221,57 @@ Header links
 - COURSES
 - SCHOOLS
 
+Footer social links
+~~~~~~~~~~~~~~~~~~~
+
+Set SOCIAL_MEDIA_FOOTER_URLS to a dict of social links. E.g.:
+
+::
+
+    SOCIAL_MEDIA_FOOTER_URLS = {
+        'tumblr': '<insert_tumblr_url_here>',
+        'reddit': '<insert_reddit_url_here>',
+        'twitter': '<insert_twitter_url_here>',
+        'google_plus': '<insert_google_plus_url_here>',
+        'youtube': '<insert_youtube_url_here>',
+        'linkedin': '<insert_linkedin_url_here>',
+        'meetup': '<insert_meetup_url_here>',
+        'facebook': '<insert_facebook_url_here>',
+    }
+
+
+Social sharing links
+~~~~~~~~~~~~~~~~~~~~
+
+Set CUSTOM_SOCIAL_SHARING_SETTINGS as a dict with the following settings:
+
+Change the defaults to enable social sharing urls in the dashboard (set CUSTOM_COURSE_URLS)
+and the certificates.
+
+New defaults are:
+
+::
+
+    'SOCIAL_SHARING_SETTINGS': {
+        'CUSTOM_COURSE_URLS': True,
+        'DASHBOARD_FACEBOOK': True,
+        'FACEBOOK_BRAND': "{{ CUSTOM_FACEBOOK_BRAND }}",
+        'DASHBOARD_TWITTER': True,
+        'DASHBOARD_TWITTER_TEXT': None,
+        'TWITTER_BRAND': "{{ CUSTOM_TWITTER_BRAND }}",
+        'CERTIFICATE_FACEBOOK': True,
+        'CERTIFICATE_FACEBOOK_TEXT': None,
+        'CERTIFICATE_TWITTER': True,
+        'CERTIFICATE_TWITTER_TEXT': None,
+        'CERTIFICATE_LINKEDIN_MODE_TO_CERT_NAME': {
+                'honor': '{platform_name} Honor Code Credential for {course_name}',
+                'verified': '{platform_name} Verified Credential for {course_name}',
+                'professional': '{platform_name} Professional Credential for {course_name}',
+                'no-id-professional': '{platform_name} Professional Credential for {course_name}',
+        }
+    },
+
+
 Remove search box in index
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -231,12 +315,16 @@ login and registration and force registering via a third party identity provider
 Google Analytics
 ~~~~~~~~~~~~~~~~
 
-Set ``CUSTOM_GOOGLE_ANALYTICS_ACCOUNT`` and ``CUSTOM_GOOGLE_ANALYTICS_TRACKING_ID``.
+Set ``CUSTOM_GOOGLE_ANALYTICS_4_ID`` to your Google Analytics 4 ID.
 Then rebuild openedx and mfe.
 
-Note: as of May 2023 Google Analytics support has been upgraded from
-Google Universal Analytics to Google Analytics 4 and you may need to update
-your configuration as mentioned in the Open edX docs.
+Course Live
+~~~~~~~~~~~
+
+Set `CUSTOM_ENABLE_COURSE_LIVE` to False (custom default True) to disable the course live feature.
+To disable Big Blue Button support, set `CUSTOM_ENABLE_BIG_BLUE_BUTTON` to False (custom default True).
+
+Then run `tutor {dev|local|k8s} init --limit custom` to enable it.
 
 Maximum login failures allowed
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -269,6 +357,70 @@ Defaults: 'user': '60/minute', 'service_user': '800/minute', 'registration_valid
 
 For rate formats, see the `ratelimit documentation <https://django-ratelimit.readthedocs.io/en/stable/usage.html>`_.
 To disable a rate limit, set it to None.
+
+Caddyfile patches
+~~~~~~~~~~~~~~~~~
+
+Use ``CADDYFILE_PATCH``, ``CADDYFILE_LMS``, ``CADDYFILE_CMS`` and ``CADDYFILE_GLOBAL`` to
+add caddyfile directives to each section.
+
+E.g.:
+
+::
+
+    CUSTOM_CADDYFILE_LMS: "redir / /login"
+
+Other course settings
+~~~~~~~~~~~~~~~~~~~~~
+
+The ``Other course settings`` field editable in Studio's advanced settings is now
+enabled by default. To disable, set ``CUSTOM_ENABLE_OTHER_COURSE_SETTINGS: False``.
+To make this field available via the course blocks API, make sure it is included
+in the course blocks API extra fields (see next).
+
+Course blocks API extra fields
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``COURSE_BLOCKS_API_EXTRA_FIELDS`` setting defines which additional fields are
+returned by the blocks api (``https://${LMS_HOST}/api/courses/v2/blocks/``).
+This API is managed by the `BlocksView <https://github.com/openedx/edx-platform/blob/285f1fbfd758c1bb51f8e6af66adfdc42080df87/lms/djangoapps/course_api/blocks/views.py#L30>`_ view.
+
+The new default is ``[('course', 'other_course_settings')]``.
+
+Video uploads feature enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Video uploads is enabled now by default.
+Use the following variables to customize it behaviour:
+
+- CUSTOM_ENABLE_VIDEO_UPLOAD_PIPELINE: Set to False to disable (enabled by default)
+- CUSTOM_VIDEO_UPLOAD_PIPELINE_ROOT_PATH: Path inside the S3 bucket to store videos. By default "videos".
+- CUSTOM_VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET: Set the S3 bucket name. By default it uses the tutor-contrib-s3's configuration S3_STORAGE_BUCKET.
+- CUSTOM_VIDEO_IMAGE_UPLOAD_ENABLED: Set to False to disable the possibility to upload a cover image to the video
+  (enabled by default). To activate a change in this setting you must initialize Tutor
+
+OpenSearch index prefix
+~~~~~~~~~~~~~~~~~~~~~~~
+
+You can use a single OpenSearch cluster for multiple Open edX instances.
+Set "CUSTOM_ELASTIC_SEARCH_INDEX_PREFIX" to a string identifying your instance.
+
+Other course settings
+~~~~~~~~~~~~~~~~~~~~~
+
+The ``Other course settings`` field editable in Studio's advanced settings is now
+enabled by default. To disable, set ``CUSTOM_ENABLE_OTHER_COURSE_SETTINGS: False``.
+To make this field available via the course blocks API, make sure it is included
+in the course blocks API extra fields (see next).
+
+Course blocks API extra fields
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The ``COURSE_BLOCKS_API_EXTRA_FIELDS`` setting defines which additional fields are
+returned by the blocks api (``https://${LMS_HOST}/api/courses/v2/blocks/``).
+This API is managed by the `BlocksView <https://github.com/openedx/edx-platform/blob/285f1fbfd758c1bb51f8e6af66adfdc42080df87/lms/djangoapps/course_api/blocks/views.py#L30>`_ view.
+
+The new default is ``[('course', 'other_course_settings')]``.
 
 Usage
 -----

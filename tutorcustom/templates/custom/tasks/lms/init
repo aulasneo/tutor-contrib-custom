@@ -4,22 +4,10 @@
 ./manage.py lms waffle_delete --switches certificates.auto_certificate_generation
 {% endif %}
 
-{% if CUSTOM_ENABLE_SELF_PACED_COURSES %}
-./manage.py lms shell -c "from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration; SelfPacedConfiguration(enable_course_home_improvements=True, enabled=True).save()"
-{% else %}
-./manage.py lms shell -c "from openedx.core.djangoapps.self_paced.models import SelfPacedConfiguration; SelfPacedConfiguration(enable_course_home_improvements=True, enabled=False).save()"
-{% endif %}
-
 {% if CUSTOM_ENABLE_ANONYMOUS_COURSEWARE_ACCESS %}
 (./manage.py lms waffle_flag --list | grep seo.enable_anonymous_courseware_access) || ./manage.py lms waffle_flag --create --everyone seo.enable_anonymous_courseware_access
 {% else %}
-./manage.py lms waffle_delete --flags certificates.auto_certificate_generation
-{% endif %}
-
-{% if CUSTOM_ENABLE_PERSISTENT_GRADES %}
-./manage.py lms shell -c "from lms.djangoapps.grades.config.models import PersistentGradesEnabledFlag; PersistentGradesEnabledFlag(enabled_for_all_courses=True, enabled=True).save()"
-{% else %}
-./manage.py lms shell -c "from lms.djangoapps.grades.config.models import PersistentGradesEnabledFlag; PersistentGradesEnabledFlag(enabled_for_all_courses=True, enabled=False).save()"
+./manage.py lms waffle_delete --flags seo.enable_anonymous_courseware_access
 {% endif %}
 
 {% if CUSTOM_ENABLE_COURSE_EXIT_PAGE %}
@@ -28,4 +16,20 @@
 ./manage.py lms waffle_delete --flags courseware.microfrontend_course_exit_page
 {% endif %}
 
+{% if CUSTOM_ENABLE_BIG_BLUE_BUTTON %}
+(./manage.py lms waffle_flag --list | grep course_live.enable_big_blue_button) || ./manage.py lms waffle_flag --create --everyone course_live.enable_big_blue_button
+{% else %}
+./manage.py lms waffle_delete --flags course_live.enable_big_blue_button
+{% endif %}
 
+{% if CUSTOM_ENABLE_COURSE_LIVE %}
+(./manage.py lms waffle_flag --list | grep course_live.enable_course_live) || ./manage.py lms waffle_flag --create --everyone course_live.enable_course_live
+{% else %}
+./manage.py lms waffle_delete --flags course_live.enable_course_live
+{% endif %}
+
+{% if CUSTOM_VIDEO_IMAGE_UPLOAD_ENABLED %}
+(./manage.py lms waffle_switch --list | grep videos.video_image_upload_enabled) || ./manage.py lms waffle_switch --create videos.video_image_upload_enabled on
+{% else %}
+./manage.py lms waffle_delete --switches videos.video_image_upload_enabled
+{% endif %}
