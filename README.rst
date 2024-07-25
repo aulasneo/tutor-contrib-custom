@@ -414,6 +414,46 @@ This API is managed by the `BlocksView <https://github.com/openedx/edx-platform/
 
 The new default is ``[('course', 'other_course_settings')]``.
 
+Progress milestones
+~~~~~~~~~~~~~~~~~~~
+
+`courseware.mfe_progress_milestones <https://github.com/openedx/edx-platform/blob/cbd4904e1bac20e7c217e490c72d4be8b4b43b8a/lms/djangoapps/courseware/toggles.py#L38>`_ is a waffle flag to display learner progress milestones in a course. Supports staged
+rollout to students for a new micro-frontend-based implementation of the courseware page.
+
+Originally it is disabled by default. Set CUSTOM_MFE_PROGRESS_MILESTONES to ``False`` to disable again.
+
+Milestones streak celebrations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+`mfe_progress_milestones_streak_celebration <https://github.com/openedx/edx-platform/blob/cbd4904e1bac20e7c217e490c72d4be8b4b43b8a/lms/djangoapps/courseware/toggles.py#L54>`_
+is a waffle flag to display a celebration modal when learner completes a configurable streak
+Supports staged rollout to students for a new micro-frontend-based implementation of the
+courseware page.
+
+Originally it is disabled by default. Set CUSTOM_MFE_PROGRESS_MILESTONES_STREAK_CELEBRATION to ``False``
+to disable again.
+
+Please see the `user celebration model definition <https://github.com/openedx/edx-platform/blob/cbd4904e1bac20e7c217e490c72d4be8b4b43b8a/common/djangoapps/student/models/user.py#L1697>`_
+for more detail.
+
+Courseware search
+~~~~~~~~~~~~~~~~~
+
+`mfe_courseware_search <https://github.com/openedx/edx-platform/blob/cbd4904e1bac20e7c217e490c72d4be8b4b43b8a/lms/djangoapps/courseware/toggles.py#L68>`_
+enables Courseware Search on Learning MFE.
+
+Originally it is disabled by default. Set CUSTOM_MFE_COURSEWARE_SEARCH to ``False``
+to disable again.
+
+Navigation sidebar
+~~~~~~~~~~~~~~~~~~
+
+`enable_navigation_sidebar <https://github.com/openedx/edx-platform/blob/cbd4904e1bac20e7c217e490c72d4be8b4b43b8a/lms/djangoapps/courseware/toggles.py#L94>`_
+enables the navigation sidebar on Learning MFE.
+
+Originally it is disabled by default. Set CUSTOM_ENABLE_NAVIGATION_SIDEBAR to ``False``
+to disable again.
+
 Usage
 -----
 

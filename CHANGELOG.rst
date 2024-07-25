@@ -1,6 +1,14 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+- Feat: Enable mfe_progress_milestones by default
+- Feat: Enable mfe_progress_milestones_streak_celebration by default
+- Feat: Enable courseware search by default
+- Feat: Enable navigation sidebar by default
+
 Version 17.0.0 (2024-07-25)
 ----------
 
