@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 17.1.0 (2024-07-25)
 ----------
 
 - Feat: Enable mfe_progress_milestones by default
