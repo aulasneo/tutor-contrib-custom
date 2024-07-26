@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 18.0.0 (2024-07-26)
 ----------
 - Upgrade to Redwood
 
