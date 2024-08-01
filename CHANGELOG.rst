@@ -1,6 +1,11 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+fix: move setting of REGISTRATION_EXTRA_FIELDS to openedx-lms-common-settings.
+
 Version 15.4.0 (2024-01-26)
 ----------
 
