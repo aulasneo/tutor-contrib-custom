@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 17.1.1 (2024-08-23)
 ----------
 
 - Fix: fix video upload pipeline s3 bucket setting when s3 is not enabled
