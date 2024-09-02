@@ -1,15 +1,16 @@
+"""
+Tutor plugin to help change Open edX settings from the Tutor configuration file.
+It also provides better default values for many common settings.
+"""
 from glob import glob
 import os
 import pkg_resources
 
 from tutor import hooks
+from tutorforum.hooks import FORUM_ENV
 
 from .__about__ import __version__
 
-
-########################################
-# CONFIGURATION
-########################################
 
 config = {
     'defaults': {
@@ -18,11 +19,13 @@ config = {
         "TWITTER_BRAND": "",
         "BADGR_ENABLE_NOTIFICATIONS": True,
         "DEFAULT_MOBILE_AVAILABLE": True,
-        "ENABLE_COMPREHENSIVE_THEMING": True,   # Already true as default
+        "ENABLE_COMPREHENSIVE_THEMING": True,
         # Set to True to prevent using username/password login and registration and only allow
         #   authentication with third party auth
         "ENABLE_REQUIRE_THIRD_PARTY_AUTH": False,
-        "SEARCH_SKIP_SHOW_IN_CATALOG_FILTERING": False, # Already false as default
+        #  If enabled, courses with a catalog_visibility set to "none"
+        #  will still appear in search results.
+        "SEARCH_SKIP_SHOW_IN_CATALOG_FILTERING": False,  # True by default
         "WIKI_ENABLED": False,
         "COURSE_MODE_DEFAULTS": {
             "name": "Honor",
@@ -76,7 +79,7 @@ config = {
             }
         },
         "ENABLE_DYNAMIC_REGISTRATION_FIELDS": False,
-        "MAX_FAILED_LOGIN_ATTEMPTS_ALLOWED": True,
+        "MAX_FAILED_LOGIN_ATTEMPTS_ALLOWED": 6,
         "MAX_FAILED_LOGIN_ATTEMPTS_LOCKOUT_PERIOD_SECS": 1800,
         "ELASTIC_SEARCH_INDEX_PREFIX": "",
 
@@ -103,7 +106,8 @@ config = {
         # openedx-cms-common-settings
         "ENABLE_VIDEO_UPLOAD_PIPELINE": True,
         "VIDEO_UPLOAD_PIPELINE_ROOT_PATH": "videos",
-        "VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET": "{% if S3_STORAGE_BUCKET is defined %}{{ S3_STORAGE_BUCKET }}{% else %}'Please set VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET with the bucket name'{% endif %}",
+        "VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET":
+            "{% if S3_STORAGE_BUCKET is defined %}{{ S3_STORAGE_BUCKET }}{% endif %}",
         "VIDEO_IMAGE_UPLOAD_ENABLED": True,
 
         # common-env-features
@@ -169,32 +173,7 @@ hooks.Filters.CONFIG_DEFAULTS.add_items(
     ]
 )
 
-hooks.Filters.CONFIG_UNIQUE.add_items(
-    [
-        # Add settings that don't have a reasonable default for all users here.
-        # For instance: passwords, secret keys, etc.
-        # Each new setting is a pair: (setting_name, unique_generated_value).
-        # Prefix your setting names with 'CUSTOM_'.
-        # For example:
-        # ("CUSTOM_SECRET_KEY", "{{ 24|random_string }}"),
-    ]
-)
-
-hooks.Filters.CONFIG_OVERRIDES.add_items(
-    [
-        # Danger zone!
-        # Add values to override settings from Tutor core or other plugins here.
-        # Each override is a pair: (setting_name, new_value). For example:
-        # ("PLATFORM_NAME", "My platform"),
-    ]
-)
-
-
-########################################
-# INITIALIZATION TASKS
-########################################
-
-# To run the script from templates/custom/tasks/myservice/init, add:
+# init script
 with open(
         pkg_resources.resource_filename(
             "tutorcustom", os.path.join("templates", "custom", "tasks", "lms", "init")
@@ -207,27 +186,6 @@ with open(
     ))
 
 
-########################################
-# DOCKER IMAGE MANAGEMENT
-########################################
-
-# To build an image with `tutor images build myimage`, add a Dockerfile to templates/custom/build/myimage and write:
-# hooks.Filters.IMAGES_BUILD.add_item((
-#     "myimage",
-#     ("plugins", "custom", "build", "myimage"),
-#     "docker.io/myimage:{{ CUSTOM_VERSION }}",
-#     (),
-# )
-
-# To pull/push an image with `tutor images pull myimage` and `tutor images push myimage`, write:
-# hooks.Filters.IMAGES_PULL.add_item((
-#     "myimage",
-#     "docker.io/myimage:{{ CUSTOM_VERSION }}",
-# )
-# hooks.Filters.IMAGES_PUSH.add_item((
-#     "myimage",
-#     "docker.io/myimage:{{ CUSTOM_VERSION }}",
-# )
 
 
 ########################################
@@ -244,9 +202,6 @@ hooks.Filters.ENV_TEMPLATE_ROOTS.add_items(
 )
 
 hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
-    # For each pair (source_path, destination_path):
-    # templates at ``source_path`` (relative to your ENV_TEMPLATE_ROOTS) will be
-    # rendered to ``destination_path`` (relative to your Tutor environment).
     [
         ("custom/build", "plugins"),
         ("custom/apps", "plugins"),
@@ -270,3 +225,9 @@ for path in glob(
 ):
     with open(path, encoding="utf-8") as patch_file:
         hooks.Filters.ENV_PATCHES.add_item((os.path.basename(path), patch_file.read()))
+
+
+@FORUM_ENV.add()
+def _add_forum_env_vars(env_vars):
+    env_vars.update({"ELASTICSEARCH_INDEX_PREFIX": "{{ CUSTOM_ELASTIC_SEARCH_INDEX_PREFIX }}"})
+    return env_vars

@@ -1,6 +1,11 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+- Feat: add elasticsearch prefix to discovery and forum.
+
 Version 16.2.2 (2024-06-26)
 ----------
 Add COURSE_BLOCKS_API_EXTRA_FIELDS setting, with default to [('course', 'other_course_settings')]
