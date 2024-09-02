@@ -396,6 +396,7 @@ OpenSearch index prefix
 
 You can use a single OpenSearch cluster for multiple Open edX instances.
 Set "CUSTOM_ELASTIC_SEARCH_INDEX_PREFIX" to a string identifying your instance.
+This will add the prefix to the Open edX, Forum and Discovery indexes.
 
 Other course settings
 ~~~~~~~~~~~~~~~~~~~~~
