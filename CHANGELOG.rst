@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 16.3.0 (2024-09-02)
 ----------
 
 - Feat: add elasticsearch prefix to discovery and forum.
