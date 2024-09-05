@@ -455,6 +455,12 @@ enables the navigation sidebar on Learning MFE.
 Originally it is disabled by default. Set CUSTOM_ENABLE_NAVIGATION_SIDEBAR to ``False``
 to disable again.
 
+Create courses as invitation only
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Set `CUSTOM_COURSES_INVITE_ONLY` to True to have all courses created by default as
+invitation only.
+
 Usage
 -----
 
