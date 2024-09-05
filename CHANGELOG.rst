@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 17.3.0 (2024-09-05)
 ----------
 
 Feat: Add COURSES_INVITE_ONLY feature flag
