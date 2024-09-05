@@ -4,6 +4,13 @@ Change log
 Unreleased
 ----------
 
+Fix: Move setting of CUSTOM_REGISTRATION_EXTRA_FIELDS to openedx-lms-common-settings patch.
+This is to make sure that it comes after it is set in
+https://github.com/overhangio/tutor/blob/46b401690c812448c17b2cd91f90cf765a7a9678/tutor/templates/apps/openedx/settings/partials/common_lms.py#L7
+
+Version 17.3.0 (2024-09-05)
+----------
+
 Feat: Add COURSES_INVITE_ONLY feature flag
 
 Version 17.2.0 (2024-09-02)
