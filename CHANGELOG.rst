@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 17.3.2 (2024-09-17)
 ----------
 
 Fix: Use CUSTOM_SUPPORT_SITE_LINK as url for help buttons in MFE.
