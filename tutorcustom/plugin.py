@@ -140,6 +140,7 @@ config = {
         "ALLOW_PUBLIC_ACCOUNT_CREATION": True,
         "ENABLE_MAX_FAILED_LOGIN_ATTEMPTS": True,
         "COURSES_INVITE_ONLY": False,
+        "ENABLE_COOKIE_CONSENT": False,
 
         # others waffle flags, switches and settings created at init time
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,

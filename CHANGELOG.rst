@@ -4,6 +4,7 @@ Change log
 Unreleased
 ----------
 
+Feat: Add CUSTOM_ENABLE_COOKIE_CONSENT.
 Fix: Use CUSTOM_SUPPORT_SITE_LINK as url for help buttons in MFE.
 
 Version 18.2.0 (2024-09-05)
