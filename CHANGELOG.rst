@@ -1,6 +1,11 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+Feat: Add CUSTOM_ENABLE_COOKIE_CONSENT.
+
 Version 17.3.2 (2024-09-17)
 ----------
 

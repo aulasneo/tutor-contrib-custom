@@ -461,6 +461,11 @@ Create courses as invitation only
 Set `CUSTOM_COURSES_INVITE_ONLY` to True to have all courses created by default as
 invitation only.
 
+Cookie consent banner
+~~~~~~~~~~~~~~~~~~~~~
+
+Set CUSTOM_ENABLE_COOKIE_CONSENT to enable the cookie consent banner.
+
 Usage
 -----
 
