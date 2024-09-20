@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 17.5.0 (2024-09-20)
 ----------
 
 Feat: Add links to privacy policy and terms of service for the authn MFE.
