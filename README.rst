@@ -214,6 +214,11 @@ More info links (not visible in the standard views):
 - SITE_MAP
 - TRADEMARKS
 
+To enable additional fields in the Authn MFE, set `CUSTOM_ENABLE_DYNAMIC_REGISTRATION_FIELDS` to True.
+You can also customize the terms of service and privacy policy urls by setting `CUSTOM_TOS_AND_HONOR_CODE`
+and `CUSTOM_PRIVACY_POLICY`. These settings only apply to the Authn MFE. By default they are now set to
+point to LMS_HOST/tos and LMS_HOST/privacy respectively.
+
 Header links
 ~~~~~~~~~~~~~
 

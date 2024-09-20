@@ -154,6 +154,9 @@ config = {
         # caddyfile patch
         "CADDYFILE_PATCH": '',
 
+        # mfe-dockerfile-pre-npm-build-authn
+        "TOS_AND_HONOR_CODE": "https://{{ LMS_HOST }}/tos",
+        "PRIVACY_POLICY": "https://{{ LMS_HOST }}/privacy",
     }
 }
 
