@@ -1,7 +1,12 @@
 Change log
 ==========
 
-Version 18.3.0 (2024-09-18)
+Unreleased
+----------
+
+Feat: Add links to privacy policy and terms of service for the authn MFE.
+
+Version 17.4.0 (2024-09-18)
 ----------
 
 Feat: Add CUSTOM_ENABLE_COOKIE_CONSENT.
