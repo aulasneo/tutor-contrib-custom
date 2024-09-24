@@ -471,6 +471,13 @@ Cookie consent banner
 
 Set CUSTOM_ENABLE_COOKIE_CONSENT to enable the cookie consent banner.
 
+Site ID
+~~~~~~~
+
+By default, the site ID set by Tutor is 2. This is usually good for most of the installations.
+However in some rare cases, like after migrating from native installations, you might need to
+set a custom site id by configuring CUSTOM_SITE_ID.
+
 Usage
 -----
 
