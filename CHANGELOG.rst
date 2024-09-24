@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 17.6.0 (2024-09-24)
 ----------
 
 Feat: Add SITE_ID setting.
