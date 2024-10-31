@@ -86,6 +86,7 @@ config = {
         "ENABLE_COURSE_DISCOVERY": True,
         "AUTHENTICATION_BACKENDS": [],
         "SOCIAL_AUTH_OAUTH_SECRETS": {},
+        "COURSE_DISCOVERY_FILTERS": ["org", "language", "modes"],
 
         # openedx-lms-production-settings
         "AUTH_PASSWORD_VALIDATORS": [
