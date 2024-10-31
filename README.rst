@@ -478,6 +478,21 @@ By default, the site ID set by Tutor is 2. This is usually good for most of the 
 However in some rare cases, like after migrating from native installations, you might need to
 set a custom site id by configuring CUSTOM_SITE_ID.
 
+Course filter in discover new page
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the discover new page (/courses), there is a sidebar at the right end to refine the search.
+By default, there are three criteria to filter: org, language and mode. Set CUSTOM_COURSE_DISCOVERY_FILTERS
+to the list of values of your preference.
+
+E.g.,
+
+::
+
+    CUSTOM_COURSE_DISCOVERY_FILTERS:
+    - language
+
+
 Usage
 -----
 
