@@ -5,6 +5,7 @@ Unreleased
 ----------
 
 Feat: Add CUSTOM_COURSE_DISCOVERY_FILTERS to customize the filters of the courses page.
+Feat: Add support for SAML configurations
 
 Version 17.6.0 (2024-09-24)
 ----------
