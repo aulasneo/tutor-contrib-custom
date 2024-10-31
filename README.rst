@@ -492,6 +492,23 @@ E.g.,
     CUSTOM_COURSE_DISCOVERY_FILTERS:
     - language
 
+SAML configuration
+~~~~~~~~~~~~~~~~~~
+
+To enable SAML, set `CUSTOM_ENABLE_SAML` to `True`. Then set your private key and public certificate in the
+`CUSTOM_SOCIAL_AUTH_SAML_SP_PRIVATE_KEY` and `CUSTOM_SOCIAL_AUTH_SAML_SP_PUBLIC_CERT:` variables.
+
+For more details, see the `documentation <https://edx.readthedocs.io/projects/edx-installing-configuring-and-running/en/latest/configuration/tpa/tpa_integrate_open/tpa_SAML_IdP.html>`_ for SAML configuration.
+
+For example, to create and record the keys you can do:
+
+::
+
+    openssl req -new -x509 -days 3652 -nodes -out saml.crt -keyout saml.key
+    tutor config save \
+        --set CUSTOM_SOCIAL_AUTH_SAML_SP_PRIVATE_KEY="$(cat saml.key)" \
+        --set CUSTOM_SOCIAL_AUTH_SAML_SP_PUBLIC_CERT="$(cat saml.crt)"
+
 
 Usage
 -----

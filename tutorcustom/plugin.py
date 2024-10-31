@@ -143,6 +143,10 @@ config = {
         "COURSES_INVITE_ONLY": False,
         "ENABLE_COOKIE_CONSENT": False,
 
+        # openedx-auth
+        "SOCIAL_AUTH_SAML_SP_PRIVATE_KEY": "",
+        "SOCIAL_AUTH_SAML_SP_PUBLIC_CERT": "",
+
         # others waffle flags, switches and settings created at init time
         "ENABLE_CERTIFICATES_AUTOGENERATION": True,
         "ENABLE_ANONYMOUS_COURSEWARE_ACCESS": True,
@@ -151,6 +155,7 @@ config = {
         "MFE_PROGRESS_MILESTONES_STREAK_CELEBRATION": True,
         "MFE_COURSEWARE_SEARCH": True,
         "ENABLE_NAVIGATION_SIDEBAR": True,
+        "ENABLE_SAML": True,
 
         # caddyfile patch
         "CADDYFILE_PATCH": '',

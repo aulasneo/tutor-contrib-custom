@@ -5,6 +5,7 @@ Unreleased
 ----------
 
 Feat: Add CUSTOM_COURSE_DISCOVERY_FILTERS to customize the filters of the courses page.
+Feat: Add support for SAML configurations
 Feat: Add SITE_ID setting.
 Feat: Add links to privacy policy and terms of service for the authn MFE.
 
