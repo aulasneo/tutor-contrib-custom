@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 18.4.0 (2024-12-11)
 ----------
 
 Feat: Add CUSTOM_COURSE_DISCOVERY_FILTERS to customize the filters of the courses page.
