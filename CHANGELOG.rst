@@ -1,7 +1,7 @@
 Change log
 ==========
 
-Unreleased
+Version 18.4.1 (2024-12-18)
 ----------
 
 fix: Remove setting MFE_CONFIG['SUPPORT_URL'] in openedx-common-settings
