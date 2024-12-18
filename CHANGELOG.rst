@@ -1,6 +1,12 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+fix: Remove setting MFE_CONFIG['SUPPORT_URL'] in openedx-common-settings
+and leave only in openedx-lms-production-settings
+
 Version 18.4.0 (2024-12-11)
 ----------
 
