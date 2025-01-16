@@ -1,6 +1,11 @@
 Change log
 ==========
 
+Unreleased
+----------
+
+Feat: Set CUSTOM_ORGANIZATIONS_AUTOCREATE to False to restrict course creation to existing organizations.
+
 Version 18.4.1 (2024-12-18)
 ----------
 

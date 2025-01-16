@@ -109,6 +109,7 @@ config = {
         "VIDEO_UPLOAD_PIPELINE_VEM_S3_BUCKET":
             "{% if S3_STORAGE_BUCKET is defined %}{{ S3_STORAGE_BUCKET }}{% endif %}",
         "VIDEO_IMAGE_UPLOAD_ENABLED": True,
+        "ORGANIZATIONS_AUTOCREATE": True,
 
         # common-env-features
         "ALLOW_HIDING_DISCUSSION_TAB": True,

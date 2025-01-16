@@ -509,6 +509,11 @@ For example, to create and record the keys you can do:
         --set CUSTOM_SOCIAL_AUTH_SAML_SP_PRIVATE_KEY="$(cat saml.key)" \
         --set CUSTOM_SOCIAL_AUTH_SAML_SP_PUBLIC_CERT="$(cat saml.crt)"
 
+Organizaiton autocreation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Set CUSTOM_ORGANIZATIONS_AUTOCREATE to False to restrict course creation to existing organizations.
+
 
 Usage
 -----
